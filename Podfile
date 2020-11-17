@@ -6,6 +6,7 @@ target 'RedditGallery' do
   use_frameworks!
   pod 'Hero'
   pod 'HTTPiOSCLient', :git => 'https://github.com/caggiulio/HTTPiOSClient', :branch => 'without_dependency'
+  pod 'SDWebImage'
   # Pods for RedditGallery
 
   target 'RedditGalleryTests' do
