@@ -29,17 +29,15 @@ class HomeRepo: NSObject {
                             let redditResult = try? JSONDecoder().decode(RedditResult.self, from: data)
                             if let data = redditResult?.data, let childrens = data.childrens {
                                 print(childrens.count)
+                                var imgsToPass: [Images] = [Images]()
                                 for child in childrens {
                                     if let previews = child.preview {
-                                        if let imgs = previews.images {
-                                            for img in imgs {
-                                                if let res = img.resolutions {
-                                                    
-                                                }
-                                            }
+                                        if let img = previews.images?.first {
+                                            imgsToPass.append(img)
                                         }
                                     }
                                 }
+                                self.delegate?.passImages(images: imgsToPass)
                             }
                         }
                     }
