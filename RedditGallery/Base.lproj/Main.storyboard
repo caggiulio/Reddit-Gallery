@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,14 +33,46 @@
                     <view key="view" contentMode="scaleToFill" id="cCe-Ba-3f6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-TN-Czf">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="niJ-J7-9cp">
+                                    <size key="itemSize" width="174" height="195"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeCollectionViewCell" id="SrS-j4-TMC" customClass="HomeCollectionViewCell" customModule="RedditGallery" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="195"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lfF-Db-a2x">
+                                            <rect key="frame" x="0.0" y="0.0" width="174" height="195"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="174" height="195"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yY4-zs-zE2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fue-TN-Czf" firstAttribute="top" secondItem="yY4-zs-zE2" secondAttribute="top" id="BXR-22-ifW"/>
+                            <constraint firstItem="yY4-zs-zE2" firstAttribute="trailing" secondItem="Fue-TN-Czf" secondAttribute="trailing" id="MSh-eV-EHf"/>
+                            <constraint firstItem="yY4-zs-zE2" firstAttribute="bottom" secondItem="Fue-TN-Czf" secondAttribute="bottom" id="apw-Jg-W5Y"/>
+                            <constraint firstItem="Fue-TN-Czf" firstAttribute="leading" secondItem="yY4-zs-zE2" secondAttribute="leading" id="vbb-22-BfP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8UI-6y-Dik"/>
+                    <connections>
+                        <outlet property="homeCollectionView" destination="Fue-TN-Czf" id="XTE-23-p7A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uub-zD-Q2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="-332"/>
+            <point key="canvasLocation" x="1471.0144927536232" y="-230.35714285714283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D2n-cD-iaf">
@@ -59,14 +92,14 @@
             </objects>
             <point key="canvasLocation" x="-301" y="73"/>
         </scene>
-        <!--Item 1-->
+        <!--Home-->
         <scene sceneID="bDd-wf-cya">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vsm-a9-3qf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Ygo-kS-APF"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vsm-a9-3qf" customClass="RedditNavigationViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="Ygo-kS-APF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ouy-GT-9Bi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Ouy-GT-9Bi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -78,14 +111,14 @@
             </objects>
             <point key="canvasLocation" x="586.95652173913049" y="-230.35714285714283"/>
         </scene>
-        <!--Item 2-->
+        <!--Favorites-->
         <scene sceneID="cUD-Ti-wtD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sos-M6-STd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="X9k-wO-G49"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sos-M6-STd" customClass="RedditNavigationViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" id="X9k-wO-G49"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dh6-4y-Ngi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Dh6-4y-Ngi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
