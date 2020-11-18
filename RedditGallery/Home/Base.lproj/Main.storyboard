@@ -39,7 +39,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-TN-Czf">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="iYe-nV-PIj">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -60,12 +60,30 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BRO-xZ-lfD" customClass="RedditImageView" customModule="RedditGallery" customModuleProvider="target">
                                                             <rect key="frame" x="5" y="5" width="164" height="185"/>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="ljP-Eg-eJi" customClass="RedditLabel" customModule="RedditGallery" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="158.5" width="134" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                            <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="a6n-XE-BjY" customClass="RedditSubtitleLabel" customModule="RedditGallery" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="130" width="134" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                            <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="ljP-Eg-eJi" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="20" id="2h1-qM-FE0"/>
                                                         <constraint firstAttribute="trailing" secondItem="BRO-xZ-lfD" secondAttribute="trailing" constant="5" id="A0C-w2-9hW"/>
+                                                        <constraint firstItem="a6n-XE-BjY" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="20" id="HLa-p1-NZ6"/>
                                                         <constraint firstItem="BRO-xZ-lfD" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="5" id="S99-lc-2ww"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ljP-Eg-eJi" secondAttribute="trailing" constant="20" id="X08-1b-nm2"/>
                                                         <constraint firstAttribute="bottom" secondItem="BRO-xZ-lfD" secondAttribute="bottom" constant="5" id="dLQ-YH-p1b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ljP-Eg-eJi" secondAttribute="bottom" constant="16" id="hEL-OS-1q8"/>
+                                                        <constraint firstItem="ljP-Eg-eJi" firstAttribute="top" secondItem="a6n-XE-BjY" secondAttribute="bottom" constant="8" symbolic="YES" id="kUO-bZ-B0a"/>
+                                                        <constraint firstAttribute="trailing" secondItem="a6n-XE-BjY" secondAttribute="trailing" constant="20" id="uIH-sM-Zgb"/>
                                                         <constraint firstItem="BRO-xZ-lfD" firstAttribute="top" secondItem="R1g-o6-PEV" secondAttribute="top" constant="5" id="zPW-Sl-wR5"/>
                                                     </constraints>
                                                 </view>
@@ -79,15 +97,16 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="174" height="195"/>
                                         <connections>
+                                            <outlet property="authorLabel" destination="a6n-XE-BjY" id="bdt-XK-5iS"/>
                                             <outlet property="containerView" destination="R1g-o6-PEV" id="gVq-3f-etL"/>
                                             <outlet property="homeImageViewCell" destination="BRO-xZ-lfD" id="I8c-1E-XpP"/>
+                                            <outlet property="titleLabel" destination="ljP-Eg-eJi" id="efV-hn-mdX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yY4-zs-zE2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Fue-TN-Czf" firstAttribute="top" secondItem="yY4-zs-zE2" secondAttribute="top" id="BXR-22-ifW"/>
                             <constraint firstItem="yY4-zs-zE2" firstAttribute="trailing" secondItem="Fue-TN-Czf" secondAttribute="trailing" id="MSh-eV-EHf"/>
@@ -177,7 +196,7 @@
         <scene sceneID="D2n-cD-iaf">
             <objects>
                 <tabBarController id="zV6-hi-UeC" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dcy-r2-0TN">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="dcy-r2-0TN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -200,7 +219,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vsm-a9-3qf" customClass="RedditNavigationViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="Ygo-kS-APF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Ouy-GT-9Bi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Ouy-GT-9Bi">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

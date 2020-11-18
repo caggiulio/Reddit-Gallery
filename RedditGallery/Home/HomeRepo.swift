@@ -54,6 +54,8 @@ class HomeRepo: NSObject {
                                 for child in childrens {
                                     if let previews = child.preview {
                                         if let img = previews.images?.first {
+                                            img.title = child.title
+                                            img.author = child.authorFullname
                                             imgsToPass.append(img)
                                         }
                                     }
