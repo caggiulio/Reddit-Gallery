@@ -12,26 +12,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeCollectionView: UICollectionView!
     
     var homeRepo: HomeRepo?
-    var images: [Images] = [Images]() {
-        didSet {
-            homeCollectionView.reloadData()
-        }
-    }
-    
-    var searchToText: String = "" {
-        didSet {
-            search(searchToText: searchToText)
-        }
-    }
-    
-    func search(searchToText: String) {
-        if !searchToText.isEmpty {
-            homeRepo?.cancelRequest()
-            homeRepo?.fetchImages(searchString: searchToText)
-        } else {
-            self.images.removeAll()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,25 +38,36 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeRepoDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchControllerDelegate {
+    
+    func reloadData() {
+        self.homeCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return homeRepo?.images.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
-        let img = images[indexPath.item]
-        cell.fillCell(image: img)
+        if let img = homeRepo?.images[indexPath.item] {
+            cell.fillCell(image: img)
+        }
         cell.layoutIfNeeded()
         
         return cell
     }
     
-    func passImages(images: [Images]) {
-        self.images = images
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(identifier: "imageDetailViewController") as! ImageDetailViewController
+        if let images = homeRepo?.images {
+            vc.images = images
+        }
+        vc.selectedIndex = indexPath.item
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchToText = searchText
+        homeRepo?.textToSearch = searchText
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -86,6 +77,6 @@ extension HomeViewController: HomeRepoDelegate, UICollectionViewDelegate, UIColl
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
+        return CGSize(width: 100, height: 100)
     }
 }

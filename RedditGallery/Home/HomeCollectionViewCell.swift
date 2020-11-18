@@ -20,7 +20,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     func fillCell(image: Images) {
-        if let url = image.resolutions?[1].url {
+        var resIndex: Int = 0
+        if image.resolutions?.count ?? 0 > 3 {
+            resIndex = 2
+        } else if image.resolutions?.count ?? 0 > 2 {
+            resIndex = 1
+        }
+        if let url = image.resolutions?[resIndex].url {
             self.homeImageViewCell.sd_setImage(with: URL(string: url.convertSpecialCharacters()), placeholderImage: UIImage(named: "placeholder"))
         }
     }

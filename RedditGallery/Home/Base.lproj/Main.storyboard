@@ -95,11 +95,74 @@
                     <navigationItem key="navigationItem" id="8UI-6y-Dik"/>
                     <connections>
                         <outlet property="homeCollectionView" destination="Fue-TN-Czf" id="XTE-23-p7A"/>
+                        <segue destination="Bda-FJ-uzF" kind="show" id="M73-v3-SGY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uub-zD-Q2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1471.0144927536232" y="-230.35714285714283"/>
+        </scene>
+        <!--Image Detail View Controller-->
+        <scene sceneID="cj4-nX-JME">
+            <objects>
+                <viewController storyboardIdentifier="imageDetailViewController" id="Bda-FJ-uzF" customClass="ImageDetailViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cvL-HB-wJA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-3R-WLH">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TSW-IJ-m7a">
+                                    <size key="itemSize" width="277" height="377"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageDetailViewController" id="aV4-Xx-k68" customClass="ImageDetailCollectionViewCell" customModule="RedditGallery" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="148" width="277" height="377"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="54b-ht-fHL">
+                                            <rect key="frame" x="0.0" y="0.0" width="277" height="377"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTk-Qa-9zG" customClass="RedditImageView" customModule="RedditGallery" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="377"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fTk-Qa-9zG" secondAttribute="bottom" id="H3I-3N-Rr6"/>
+                                                <constraint firstAttribute="trailing" secondItem="fTk-Qa-9zG" secondAttribute="trailing" id="QDh-br-a3N"/>
+                                                <constraint firstItem="fTk-Qa-9zG" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" id="Z4q-hl-ZBf"/>
+                                                <constraint firstItem="fTk-Qa-9zG" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" id="ctW-Tx-Bzn"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageDetailView" destination="fTk-Qa-9zG" id="DjP-J9-oWl"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AiF-RS-3kf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="leading" secondItem="AiF-RS-3kf" secondAttribute="leading" id="B7B-fb-Vhw"/>
+                            <constraint firstItem="AiF-RS-3kf" firstAttribute="trailing" secondItem="Hg3-3R-WLH" secondAttribute="trailing" id="RmX-rB-q3d"/>
+                            <constraint firstItem="AiF-RS-3kf" firstAttribute="bottom" secondItem="Hg3-3R-WLH" secondAttribute="bottom" id="j5N-zN-w8A"/>
+                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="top" secondItem="AiF-RS-3kf" secondAttribute="top" id="kTs-Ud-35E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="He9-Dh-Hii"/>
+                    <connections>
+                        <outlet property="imagesDetailCollectionView" destination="Hg3-3R-WLH" id="Pun-uS-lQU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgi-qy-Tx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205.7971014492755" y="-223.66071428571428"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D2n-cD-iaf">

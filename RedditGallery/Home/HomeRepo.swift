@@ -10,13 +10,34 @@ import HTTPiOSCLient
 import Alamofire
 
 protocol HomeRepoDelegate: AnyObject {
-    func passImages(images: [Images])
+    func reloadData()
 }
 
 class HomeRepo: NSObject {
     
     override init() {}
     weak var delegate: HomeRepoDelegate?
+    
+    var images: [Images] = [Images]() {
+        didSet {
+            delegate?.reloadData()
+        }
+    }
+    
+    var textToSearch: String = "" {
+        didSet {
+            search(searchToText: textToSearch)
+        }
+    }
+    
+    func search(searchToText: String) {
+        if !searchToText.isEmpty {
+            self.cancelRequest()
+            self.fetchImages(searchString: searchToText)
+        } else {
+            self.images.removeAll()
+        }
+    }
     
     func fetchImages(searchString: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
@@ -37,7 +58,7 @@ class HomeRepo: NSObject {
                                         }
                                     }
                                 }
-                                self.delegate?.passImages(images: imgsToPass)
+                                self.images = imgsToPass
                             }
                         }
                     }
