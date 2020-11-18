@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 class HomeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var favouritesButton: RedditFavouritesButton!
     @IBOutlet weak var authorLabel: RedditSubtitleLabel!
     @IBOutlet weak var titleLabel: RedditLabel!
     @IBOutlet weak var containerView: UIView!

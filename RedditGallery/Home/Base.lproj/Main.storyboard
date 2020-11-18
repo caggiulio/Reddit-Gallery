@@ -72,13 +72,22 @@
                                                             <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6N-X9-BzC" customClass="RedditFavouritesButton" customModule="RedditGallery" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="22" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="T6N-X9-BzC" secondAttribute="height" multiplier="1:1" id="Qyt-PT-uXb"/>
+                                                                <constraint firstAttribute="width" constant="40" id="dCN-DP-V1J"/>
+                                                            </constraints>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="ljP-Eg-eJi" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="20" id="2h1-qM-FE0"/>
                                                         <constraint firstAttribute="trailing" secondItem="BRO-xZ-lfD" secondAttribute="trailing" constant="5" id="A0C-w2-9hW"/>
                                                         <constraint firstItem="a6n-XE-BjY" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="20" id="HLa-p1-NZ6"/>
+                                                        <constraint firstItem="T6N-X9-BzC" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="20" symbolic="YES" id="MD1-tD-fOz"/>
                                                         <constraint firstItem="BRO-xZ-lfD" firstAttribute="leading" secondItem="R1g-o6-PEV" secondAttribute="leading" constant="5" id="S99-lc-2ww"/>
+                                                        <constraint firstItem="T6N-X9-BzC" firstAttribute="top" secondItem="R1g-o6-PEV" secondAttribute="top" constant="22" id="Tse-3G-FO0"/>
                                                         <constraint firstAttribute="trailing" secondItem="ljP-Eg-eJi" secondAttribute="trailing" constant="20" id="X08-1b-nm2"/>
                                                         <constraint firstAttribute="bottom" secondItem="BRO-xZ-lfD" secondAttribute="bottom" constant="5" id="dLQ-YH-p1b"/>
                                                         <constraint firstAttribute="bottom" secondItem="ljP-Eg-eJi" secondAttribute="bottom" constant="16" id="hEL-OS-1q8"/>
@@ -99,6 +108,7 @@
                                         <connections>
                                             <outlet property="authorLabel" destination="a6n-XE-BjY" id="bdt-XK-5iS"/>
                                             <outlet property="containerView" destination="R1g-o6-PEV" id="gVq-3f-etL"/>
+                                            <outlet property="favouritesButton" destination="T6N-X9-BzC" id="d5L-Ga-69h"/>
                                             <outlet property="homeImageViewCell" destination="BRO-xZ-lfD" id="I8c-1E-XpP"/>
                                             <outlet property="titleLabel" destination="ljP-Eg-eJi" id="efV-hn-mdX"/>
                                         </connections>
