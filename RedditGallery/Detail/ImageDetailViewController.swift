@@ -12,6 +12,8 @@ class ImageDetailViewController: UIViewController {
     var images: [Images] = [Images]()
     var selectedIndex: Int = 0
     var isAlreadyPresented: Bool = false
+    
+    var imageDetailRepo: ImageDetailRepo?
 
     @IBOutlet weak var imagesDetailCollectionView: UICollectionView!
     
@@ -22,7 +24,9 @@ class ImageDetailViewController: UIViewController {
         
         imagesDetailCollectionView.collectionViewLayout = RedditCollectionFlowLayout()
         imagesDetailCollectionView.isPagingEnabled = false
-        imagesDetailCollectionView.decelerationRate = .fast //-> this for scrollView speed
+        imagesDetailCollectionView.decelerationRate = .fast
+        
+        imageDetailRepo?.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,20 +38,27 @@ class ImageDetailViewController: UIViewController {
     }
     
     func scrollToSelectedIndex() {
-        self.imagesDetailCollectionView.scrollToItem(at: IndexPath(item: selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
+        self.imagesDetailCollectionView.scrollToItem(at: IndexPath(item: imageDetailRepo?.selectedIndex ?? 0, section: 0), at: .centeredHorizontally, animated: false)
     }
 }
 
 extension ImageDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return imageDetailRepo?.images.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageDetailViewController", for: indexPath) as! ImageDetailCollectionViewCell
-        let img = images[indexPath.item]
-        cell.fillCell(image: img)
-        cell.layoutIfNeeded()
+        if let img = imageDetailRepo?.images[indexPath.item] {
+            cell.fillCell(image: img)
+            cell.layoutIfNeeded()
+        }
         return cell
+    }
+}
+
+extension ImageDetailViewController: ImageDetailRepoDelegate {
+    func reloadData() {
+        imagesDetailCollectionView.reloadData()
     }
 }

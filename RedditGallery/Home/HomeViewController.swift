@@ -52,7 +52,6 @@ extension HomeViewController: HomeRepoDelegate, UICollectionViewDelegate, UIColl
         if let img = homeRepo?.images[indexPath.item] {
             cell.fillCell(image: img)
         }
-        cell.layoutIfNeeded()
         
         return cell
     }
@@ -60,10 +59,12 @@ extension HomeViewController: HomeRepoDelegate, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(identifier: "imageDetailViewController") as! ImageDetailViewController
         if let images = homeRepo?.images {
-            vc.images = images
+            let imageDetailRepo = ImageDetailRepo(images: images, selectedIndex: indexPath.item)
+            vc.imageDetailRepo = imageDetailRepo
         }
-        vc.selectedIndex = indexPath.item
-        self.navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

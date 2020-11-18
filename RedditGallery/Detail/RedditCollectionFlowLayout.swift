@@ -15,9 +15,13 @@ class RedditCollectionFlowLayout: UICollectionViewFlowLayout {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        //fatalError("init(coder:) has not been implemented")
+        
         super.init(coder: aDecoder)
     }
+    
+    let width: CGFloat = 350
+    let height: CGFloat = 500
+    let minDistanceBeetweenCells: CGFloat = 10
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return proposedContentOffset }
@@ -35,15 +39,15 @@ class RedditCollectionFlowLayout: UICollectionViewFlowLayout {
     }
 
     func calculatedPageWidth() -> CGFloat {
-        return 350 + 10
+        return width + minDistanceBeetweenCells
     }
     
     override var itemSize: CGSize {
         set {
-            self.itemSize = CGSize(width: 350, height: 550)
+            self.itemSize = CGSize(width: width, height: height)
         }
         get {
-            return CGSize(width: 350, height: 550)
+            return CGSize(width: width, height: height)
         }
     }
 }
