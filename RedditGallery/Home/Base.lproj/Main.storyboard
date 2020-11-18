@@ -78,6 +78,9 @@
                                                                 <constraint firstAttribute="width" secondItem="T6N-X9-BzC" secondAttribute="height" multiplier="1:1" id="Qyt-PT-uXb"/>
                                                                 <constraint firstAttribute="width" constant="40" id="dCN-DP-V1J"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <action selector="saveImageAction:" destination="SrS-j4-TMC" eventType="touchUpInside" id="JE5-xL-xOV"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

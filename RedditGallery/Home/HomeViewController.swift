@@ -57,6 +57,8 @@ extension HomeViewController: HomeRepoDelegate, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
         if let img = homeRepo?.images[indexPath.item] {
             cell.fillCell(image: img)
+            cell.homeRepo = homeRepo
+            cell.index = indexPath.item
         }
         
         return cell

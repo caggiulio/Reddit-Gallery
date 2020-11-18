@@ -5,12 +5,13 @@
 //
 import Foundation
 
-class Images: Codable {
+class Images: Codable, Equatable {
 
 	let resolutions: [Resolutions]?
 	let id: String?
     var title: String? = nil
     var author: String? = nil
+    var isPreferred: Bool = false
     
     private enum RootCodingKeys: String, CodingKey {
             case resolutions = "resolutions"
@@ -21,7 +22,13 @@ class Images: Codable {
         let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
         resolutions = try rootContainer.decodeIfPresent([Resolutions].self, forKey: .resolutions)
         id = try rootContainer.decodeIfPresent(String.self, forKey: .id)
+        if let id = id {
+            isPreferred = CoreDataRepo.shared.IfStored(id: id)
+        }
     }
     
+    static public func ==(lhs: Images, rhs: Images) -> Bool {
+        return lhs.id == rhs.id
+    }
     
 }

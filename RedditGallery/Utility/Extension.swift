@@ -87,3 +87,12 @@ public extension UIImageView {
         self.layer.mask = gradientLayer
     }
 }
+
+extension Array where Element: Equatable {
+  
+  mutating func removeEqualItems(_ item: Element) {
+    self = self.filter { (currentItem: Element) -> Bool in
+      return currentItem != item
+    }
+  }
+}
