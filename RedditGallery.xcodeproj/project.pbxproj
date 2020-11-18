@@ -32,6 +32,8 @@
 		30ECDF9D2564810100F06E78 /* ImageDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF9C2564810100F06E78 /* ImageDetailCollectionViewCell.swift */; };
 		30ECDFA225648ECD00F06E78 /* RedditCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDFA125648ECD00F06E78 /* RedditCollectionFlowLayout.swift */; };
 		30ECDFBB256503C300F06E78 /* ImageDetailRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDFBA256503C300F06E78 /* ImageDetailRepo.swift */; };
+		30ECE0752565789A00F06E78 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECE0742565789A00F06E78 /* FontBook.swift */; };
+		30ECE07A256578E500F06E78 /* RedditLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECE079256578E500F06E78 /* RedditLabel.swift */; };
 		680FAF615A5F6B55CBFFFF65 /* Pods_RedditGalleryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E8147F95E8ED41906A5249 /* Pods_RedditGalleryTests.framework */; };
 		AB39FB8D4E70B68622382E99 /* Pods_RedditGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D607E59DFB8B76587249B11 /* Pods_RedditGallery.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,7 @@
 		30ECDF9C2564810100F06E78 /* ImageDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		30ECDFA125648ECD00F06E78 /* RedditCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		30ECDFBA256503C300F06E78 /* ImageDetailRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailRepo.swift; sourceTree = "<group>"; };
+		30ECE0742565789A00F06E78 /* FontBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
 		3E96F05935754237D5C452AA /* Pods-RedditGalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditGalleryTests.release.xcconfig"; path = "Target Support Files/Pods-RedditGalleryTests/Pods-RedditGalleryTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D607E59DFB8B76587249B11 /* Pods_RedditGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEF02D0593445530A294D54 /* Pods-RedditGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditGallery.debug.xcconfig"; path = "Target Support Files/Pods-RedditGallery/Pods-RedditGallery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				30ECDF8F2564757100F06E78 /* Extension.swift */,
+				30ECE0742565789A00F06E78 /* FontBook.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -515,6 +519,7 @@
 				30ECDF732564521F00F06E78 /* HomeCollectionViewCell.swift in Sources */,
 				30ECDF98256480A900F06E78 /* ImageDetailViewController.swift in Sources */,
 				30ECDF9D2564810100F06E78 /* ImageDetailCollectionViewCell.swift in Sources */,
+				30ECE0752565789A00F06E78 /* FontBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
