@@ -184,11 +184,11 @@
 		30ECDEF62564477200F06E78 /* RedditGallery */ = {
 			isa = PBXGroup;
 			children = (
-				30ECE09425659DF800F06E78 /* CoreData */,
 				30ECDF3E2564491200F06E78 /* RedditGallery.entitlements */,
 				30ECDEF72564477200F06E78 /* AppDelegate.swift */,
 				30ECDEF92564477200F06E78 /* SceneDelegate.swift */,
 				30ECDEFD2564477200F06E78 /* Main.storyboard */,
+				30ECE09425659DF800F06E78 /* CoreData */,
 				30ECE0D82565CE2E00F06E78 /* ImageRepo */,
 				30ECDF7C2564706700F06E78 /* CustomView */,
 				30ECDFB32565021300F06E78 /* Utility */,

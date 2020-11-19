@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvz-Fs-tFy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DTI-c6-OLd">
                                     <size key="itemSize" width="90" height="87"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -40,6 +39,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZhC-Aw-dMy" customClass="RedditImageView" customModule="RedditGallery" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="90" height="87"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAZ-8r-dPZ" customClass="RedditFavouritesButton" customModule="RedditGallery" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="8" width="30" height="30"/>
@@ -52,7 +52,7 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="IAZ-8r-dPZ" firstAttribute="leading" secondItem="908-47-P3h" secondAttribute="leading" constant="10" id="34i-A0-QiN"/>
                                                         <constraint firstItem="IAZ-8r-dPZ" firstAttribute="top" secondItem="908-47-P3h" secondAttribute="top" constant="8" id="AT3-QP-e4H"/>
@@ -80,7 +80,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AXp-rF-W4W"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nvz-Fs-tFy" firstAttribute="leading" secondItem="AXp-rF-W4W" secondAttribute="leading" id="62P-Ca-OLy"/>
                             <constraint firstItem="AXp-rF-W4W" firstAttribute="bottom" secondItem="nvz-Fs-tFy" secondAttribute="bottom" id="BFD-8P-WEf"/>
@@ -220,8 +220,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-3R-WLH">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="140.5" width="414" height="672"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TSW-IJ-m7a">
                                     <size key="itemSize" width="277" height="377"/>
@@ -231,7 +231,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageDetailViewController" id="aV4-Xx-k68" customClass="ImageDetailCollectionViewCell" customModule="RedditGallery" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="148" width="277" height="377"/>
+                                        <rect key="frame" x="10" y="147.5" width="277" height="377"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="54b-ht-fHL">
                                             <rect key="frame" x="0.0" y="0.0" width="277" height="377"/>
@@ -241,13 +241,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="277" height="377"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="8nY-DN-JPd" customClass="RedditLabel" customModule="RedditGallery" customModuleProvider="target">
-                                                    <rect key="frame" x="201.5" y="332" width="40.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="332" width="222" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-b4-qhD" customClass="RedditSubtitleLabel" customModule="RedditGallery" customModuleProvider="target">
-                                                    <rect key="frame" x="201.5" y="304" width="40.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="304" width="222" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -265,15 +265,17 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="0ni-b4-qhD" secondAttribute="trailing" constant="35" id="2uH-U6-Wwj"/>
+                                                <constraint firstItem="8nY-DN-JPd" firstAttribute="top" secondItem="0ni-b4-qhD" secondAttribute="bottom" constant="7.5" id="4LT-Th-6Lf"/>
                                                 <constraint firstItem="sih-Ri-4fi" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" constant="20" id="DiE-sU-whM"/>
+                                                <constraint firstItem="8nY-DN-JPd" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" constant="20" id="FX1-a0-yb4"/>
                                                 <constraint firstAttribute="bottom" secondItem="fTk-Qa-9zG" secondAttribute="bottom" id="H3I-3N-Rr6"/>
-                                                <constraint firstAttribute="bottom" secondItem="0ni-b4-qhD" secondAttribute="bottom" constant="52.5" id="Jwh-wt-bQN"/>
                                                 <constraint firstItem="sih-Ri-4fi" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" constant="20" id="K9o-u4-iQQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="fTk-Qa-9zG" secondAttribute="trailing" id="QDh-br-a3N"/>
                                                 <constraint firstItem="fTk-Qa-9zG" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" id="Z4q-hl-ZBf"/>
                                                 <constraint firstItem="fTk-Qa-9zG" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" id="ctW-Tx-Bzn"/>
                                                 <constraint firstAttribute="trailing" secondItem="8nY-DN-JPd" secondAttribute="trailing" constant="35" id="cu3-Yd-Xuj"/>
                                                 <constraint firstAttribute="bottom" secondItem="8nY-DN-JPd" secondAttribute="bottom" constant="24.5" id="u0y-Nm-6m4"/>
+                                                <constraint firstItem="0ni-b4-qhD" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" constant="20" id="zRx-2y-gS8"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -287,12 +289,12 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AiF-RS-3kf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="leading" secondItem="AiF-RS-3kf" secondAttribute="leading" id="B7B-fb-Vhw"/>
-                            <constraint firstItem="AiF-RS-3kf" firstAttribute="trailing" secondItem="Hg3-3R-WLH" secondAttribute="trailing" id="RmX-rB-q3d"/>
-                            <constraint firstItem="AiF-RS-3kf" firstAttribute="bottom" secondItem="Hg3-3R-WLH" secondAttribute="bottom" id="j5N-zN-w8A"/>
-                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="top" secondItem="AiF-RS-3kf" secondAttribute="top" id="kTs-Ud-35E"/>
+                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="width" secondItem="cvL-HB-wJA" secondAttribute="width" id="36k-J0-zMr"/>
+                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="centerY" secondItem="AiF-RS-3kf" secondAttribute="centerY" id="LqF-2h-lRj"/>
+                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="height" secondItem="cvL-HB-wJA" secondAttribute="height" multiplier="0.75" id="gvg-HB-mlc"/>
+                            <constraint firstItem="Hg3-3R-WLH" firstAttribute="centerX" secondItem="AiF-RS-3kf" secondAttribute="centerX" id="l0Z-D1-4fc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="He9-Dh-Hii"/>
@@ -356,7 +358,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sos-M6-STd" customClass="RedditNavigationViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" id="X9k-wO-G49"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Dh6-4y-Ngi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Dh6-4y-Ngi">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -373,9 +375,4 @@
             <point key="canvasLocation" x="587" y="435"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

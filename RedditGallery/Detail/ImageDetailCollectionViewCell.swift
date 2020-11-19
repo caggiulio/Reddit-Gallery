@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class ImageDetailCollectionViewCell: UICollectionViewCell {
     
@@ -23,11 +24,13 @@ class ImageDetailCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(vm: ImageDetailsViewModelCell) {
+        self.hero.isEnabled = true
         self.homeCellViewModel = vm
         fillCell()
     }
     
     private func fillCell() {
+        self.heroID = "collection\(homeCellViewModel?.index)"
         var resIndex: Int = 0
         resIndex = max(0, homeCellViewModel?.image?.resolutions?.count ?? 0)
         if let url = homeCellViewModel?.image?.resolutions?[resIndex - 1].url {
