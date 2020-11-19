@@ -16,8 +16,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var homeImageViewCell: RedditImageView!
         
-    var image: Images?
-    var index: Int = 0
+    private var homeCellViewModel: HomeCollectionViewModelCell?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -27,32 +26,36 @@ class HomeCollectionViewCell: UICollectionViewCell {
         self.homeImageViewCell.addGradientTransparentAtBottom()
     }
     
-    func fillCell(image: Images) {
-        self.image = image
+    func setup(vm: HomeCollectionViewModelCell) {
+        self.homeCellViewModel = vm
+        fillCell()
+    }
+    
+    private func fillCell() {
         var resIndex: Int = 0
-        resIndex = max(0, image.resolutions?.count ?? 0)
-        if let url = image.resolutions?[resIndex - 1].url {
+        resIndex = max(0, homeCellViewModel?.image?.resolutions?.count ?? 0)
+        if let url = homeCellViewModel?.image?.resolutions?[resIndex - 1].url {
             self.homeImageViewCell.sd_setImage(with: URL(string: url.convertSpecialCharacters()), placeholderImage: UIImage(named: "placeholder"))
-            self.titleLabel.text = image.title
-            self.authorLabel.text = image.author
-            self.favouritesButton.setSelected(image.isPreferred)
+            self.titleLabel.text = homeCellViewModel?.image?.title
+            self.authorLabel.text = homeCellViewModel?.image?.author
+            self.favouritesButton.setSelected(homeCellViewModel?.image?.isPreferred ?? false)
         }
     }
     
     @IBAction func saveImageAction(_ sender: RedditFavouritesButton) {
-        if let img = image, let imgId = img.id {
+        if let img = homeCellViewModel?.image, let imgId = img.id, let index = homeCellViewModel?.index {
             if img.isPreferred {
                 img.isPreferred = false
                 CoreDataRepo.shared.deleteImage(id: imgId)
                 self.animateCell {
-                    ImagesRepo.replaceImage(img: img, index: self.index)
+                    self.homeCellViewModel?.updateRepo(img: img)
                 }
             } else {
                 if let imgOnImageView = self.homeImageViewCell.image, let imgData = imgOnImageView.pngData() {
                     img.isPreferred = true
                     CoreDataRepo.shared.addFavouriteImage(id: imgId, imageData: imgData)
                     self.animateCell {
-                        ImagesRepo.replaceImage(img: img, index: self.index)
+                        self.homeCellViewModel?.updateRepo(img: img)
                     }
                 }
             }

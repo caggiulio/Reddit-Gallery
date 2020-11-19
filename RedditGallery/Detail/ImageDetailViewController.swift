@@ -10,23 +10,26 @@ import UIKit
 class ImageDetailViewController: UIViewController {
     
     var images: [Images] = [Images]()
-    var selectedIndex: Int = 0
     var isAlreadyPresented: Bool = false
     
-    var imageDetailRepo: ImageDetailRepo?
+    var imageDetailViewModel: ImageDetailViewModel?
 
     @IBOutlet weak var imagesDetailCollectionView: UICollectionView!
     
+    func setup(vm: ImageDetailViewModel) {
+        self.imageDetailViewModel = vm
+        self.imageDetailViewModel?.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         imagesDetailCollectionView.delegate = self
         imagesDetailCollectionView.dataSource = self
         
         imagesDetailCollectionView.collectionViewLayout = RedditCollectionFlowLayout()
         imagesDetailCollectionView.isPagingEnabled = false
         imagesDetailCollectionView.decelerationRate = .fast
-        
-        ImagesRepo.addImagesRepoObserver(observer: self)
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,27 +41,31 @@ class ImageDetailViewController: UIViewController {
     }
     
     func scrollToSelectedIndex() {
-        self.imagesDetailCollectionView.scrollToItem(at: IndexPath(item: imageDetailRepo?.selectedIndex ?? 0, section: 0), at: .left, animated: false)
+        self.imagesDetailCollectionView.scrollToItem(at: IndexPath(item: imageDetailViewModel?.selectedIndex ?? 0, section: 0), at: .left, animated: false)
+    }
+}
+
+extension ImageDetailViewController: ImageDetailViewModelDelegate {
+    func reloadImageDetailsView() {
+        imagesDetailCollectionView.reloadData()
     }
 }
 
 extension ImageDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ImagesRepo.images.count
+        return imageDetailViewModel?.images.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageDetailViewController", for: indexPath) as! ImageDetailCollectionViewCell
-        let img = ImagesRepo.images[indexPath.item]
-        cell.fillCell(image: img)
-        cell.index = indexPath.item
+        if let img = imageDetailViewModel?.images[indexPath.item] {
+            cell.setup(vm: ImageDetailsViewModelCell(image: img, index: indexPath.item))
+        }
         
         return cell
     }
-}
-
-extension ImageDetailViewController: ImagesRepoDelegate {
-    func reloadData() {
-        imagesDetailCollectionView.reloadData()
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
     }
 }

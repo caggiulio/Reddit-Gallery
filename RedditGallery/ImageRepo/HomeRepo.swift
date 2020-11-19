@@ -10,7 +10,7 @@ import HTTPiOSCLient
 import Alamofire
 
 protocol ImagesRepoDelegate: AnyObject {
-    func reloadData()
+    func didChangedData()
 }
 
 class ImagesRepo: NSObject {
@@ -32,7 +32,7 @@ class ImagesRepo: NSObject {
     static func notifyObservers() {
         DispatchQueue.main.async {
             for o in observers {
-                o.reloadData()
+                o.didChangedData()
             }
         }
     }

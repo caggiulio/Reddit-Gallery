@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18E69B63AE862EBA501A7C11 /* Pods_RedditGallery_RedditGalleryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 595E5A09D2CAF6806568132E /* Pods_RedditGallery_RedditGalleryUITests.framework */; };
+		30E3766A25665BE1000D6BA6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3766925665BE1000D6BA6 /* HomeViewModel.swift */; };
+		30E3766F2566627D000D6BA6 /* HomeCollectionViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */; };
+		30E3767725666C48000D6BA6 /* ImageDetailsViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */; };
 		30ECDEF82564477200F06E78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDEF72564477200F06E78 /* AppDelegate.swift */; };
 		30ECDEFA2564477200F06E78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDEF92564477200F06E78 /* SceneDelegate.swift */; };
 		30ECDEFF2564477200F06E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30ECDEFD2564477200F06E78 /* Main.storyboard */; };
@@ -31,7 +34,7 @@
 		30ECDF98256480A900F06E78 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF97256480A900F06E78 /* ImageDetailViewController.swift */; };
 		30ECDF9D2564810100F06E78 /* ImageDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF9C2564810100F06E78 /* ImageDetailCollectionViewCell.swift */; };
 		30ECDFA225648ECD00F06E78 /* RedditCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDFA125648ECD00F06E78 /* RedditCollectionFlowLayout.swift */; };
-		30ECDFBB256503C300F06E78 /* ImageDetailRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDFBA256503C300F06E78 /* ImageDetailRepo.swift */; };
+		30ECDFBB256503C300F06E78 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDFBA256503C300F06E78 /* ImageDetailViewModel.swift */; };
 		30ECE0752565789A00F06E78 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECE0742565789A00F06E78 /* FontBook.swift */; };
 		30ECE07A256578E500F06E78 /* RedditLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECE079256578E500F06E78 /* RedditLabel.swift */; };
 		30ECE08B256592EC00F06E78 /* RedditSubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECE08A256592EC00F06E78 /* RedditSubtitleLabel.swift */; };
@@ -59,6 +62,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30E3766925665BE1000D6BA6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModelCell.swift; sourceTree = "<group>"; };
+		30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewModelCell.swift; sourceTree = "<group>"; };
 		30ECDEF42564477200F06E78 /* RedditGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30ECDEF72564477200F06E78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30ECDEF92564477200F06E78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +95,7 @@
 		30ECDF97256480A900F06E78 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		30ECDF9C2564810100F06E78 /* ImageDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		30ECDFA125648ECD00F06E78 /* RedditCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditCollectionFlowLayout.swift; sourceTree = "<group>"; };
-		30ECDFBA256503C300F06E78 /* ImageDetailRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailRepo.swift; sourceTree = "<group>"; };
+		30ECDFBA256503C300F06E78 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
 		30ECE0742565789A00F06E78 /* FontBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
 		30ECE079256578E500F06E78 /* RedditLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditLabel.swift; sourceTree = "<group>"; };
 		30ECE08A256592EC00F06E78 /* RedditSubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditSubtitleLabel.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				30ECDF3E2564491200F06E78 /* RedditGallery.entitlements */,
 				30ECDEF72564477200F06E78 /* AppDelegate.swift */,
 				30ECDEF92564477200F06E78 /* SceneDelegate.swift */,
+				30ECDEFD2564477200F06E78 /* Main.storyboard */,
 				30ECE0D82565CE2E00F06E78 /* ImageRepo */,
 				30ECDF7C2564706700F06E78 /* CustomView */,
 				30ECDFB32565021300F06E78 /* Utility */,
@@ -198,9 +205,10 @@
 		30ECDF5925644C4800F06E78 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				30ECDEFD2564477200F06E78 /* Main.storyboard */,
 				30ECDF5425644C4000F06E78 /* HomeViewController.swift */,
+				30E3766925665BE1000D6BA6 /* HomeViewModel.swift */,
 				30ECDF722564521F00F06E78 /* HomeCollectionViewCell.swift */,
+				30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -236,7 +244,8 @@
 				30ECDF97256480A900F06E78 /* ImageDetailViewController.swift */,
 				30ECDFA125648ECD00F06E78 /* RedditCollectionFlowLayout.swift */,
 				30ECDF9C2564810100F06E78 /* ImageDetailCollectionViewCell.swift */,
-				30ECDFBA256503C300F06E78 /* ImageDetailRepo.swift */,
+				30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */,
+				30ECDFBA256503C300F06E78 /* ImageDetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -528,8 +537,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30ECDF902564757100F06E78 /* Extension.swift in Sources */,
+				30E3767725666C48000D6BA6 /* ImageDetailsViewModelCell.swift in Sources */,
 				30ECDF6B25644DCD00F06E78 /* RedditResult.swift in Sources */,
 				30ECE09D25659E3F00F06E78 /* CoreDataRepo.swift in Sources */,
+				30E3766A25665BE1000D6BA6 /* HomeViewModel.swift in Sources */,
 				30ECDEF82564477200F06E78 /* AppDelegate.swift in Sources */,
 				30ECE0902565953800F06E78 /* RedditFavouritesButton.swift in Sources */,
 				30ECDF6D25644DCD00F06E78 /* Children.swift in Sources */,
@@ -543,10 +554,11 @@
 				30ECDF5525644C4000F06E78 /* HomeViewController.swift in Sources */,
 				30ECDF6A25644DCD00F06E78 /* RedditData.swift in Sources */,
 				30ECDF6C25644DCD00F06E78 /* Preview.swift in Sources */,
+				30E3766F2566627D000D6BA6 /* HomeCollectionViewModelCell.swift in Sources */,
 				30ECDF78256452C100F06E78 /* RedditNavigationViewController.swift in Sources */,
 				30ECDF5E25644D2500F06E78 /* HomeRepo.swift in Sources */,
 				30ECDF7E256471E200F06E78 /* RedditImageView.swift in Sources */,
-				30ECDFBB256503C300F06E78 /* ImageDetailRepo.swift in Sources */,
+				30ECDFBB256503C300F06E78 /* ImageDetailViewModel.swift in Sources */,
 				30ECDF732564521F00F06E78 /* HomeCollectionViewCell.swift in Sources */,
 				30ECDF98256480A900F06E78 /* ImageDetailViewController.swift in Sources */,
 				30ECDF9D2564810100F06E78 /* ImageDetailCollectionViewCell.swift in Sources */,
