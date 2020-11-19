@@ -14,6 +14,8 @@ class FavouritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Favourites"
 
         favouritesCollectionView.delegate = self
         favouritesCollectionView.dataSource = self

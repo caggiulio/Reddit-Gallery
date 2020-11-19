@@ -45,11 +45,15 @@ class ImageDetailCollectionViewCell: UICollectionViewCell {
         if let img = homeCellViewModel?.image {
             if img.isPreferred {
                 img.isPreferred = false
-                homeCellViewModel?.updateRepo(img: img, method: .remove)
+                self.animateCellWithBounce(mode: .notPreferred) {
+                    self.homeCellViewModel?.updateRepo(img: img, method: .remove)
+                }
             } else {
                 if let imgOnImageView = self.imageDetailView.image, let imgData = imgOnImageView.pngData() {
                     img.isPreferred = true
-                    homeCellViewModel?.updateRepo(img: img, method: .add, data: imgData)
+                    self.animateCellWithBounce(mode: .preferred) {
+                        self.homeCellViewModel?.updateRepo(img: img, method: .add, data: imgData)
+                    }
                 }
             }
         }

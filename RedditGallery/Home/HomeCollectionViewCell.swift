@@ -49,33 +49,14 @@ class HomeCollectionViewCell: UICollectionViewCell {
         if let img = homeCellViewModel?.image {
             if img.isPreferred {
                 img.isPreferred = false
-                self.animateCell {
+                self.animateCellWithBounce(mode: .notPreferred) {
                     self.homeCellViewModel?.updateRepo(img: img, method: .remove)
                 }
             } else {
                 if let imgOnImageView = self.homeImageViewCell.image, let imgData = imgOnImageView.pngData() {
                     img.isPreferred = true
-                    self.animateCell {
+                    self.animateCellWithBounce(mode: .preferred) {
                         self.homeCellViewModel?.updateRepo(img: img, method: .add, data: imgData)
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    func animateCell(completion: @escaping () -> ()) {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.4, animations: {
-                self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }) { (_) in
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                }) { (_) in
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.transform = CGAffineTransform.identity
-                    }) { (_) in
-                        completion()
                     }
                 }
             }

@@ -118,3 +118,51 @@ extension UICollectionView {
 
     }
 }
+
+extension UICollectionViewCell {
+    
+    internal enum PreferredAnimation {
+        case preferred
+        case notPreferred
+    }
+    
+    func animateCellWithBounce(mode: PreferredAnimation, completion: @escaping () -> ()) {
+        
+        let scaleZoom: CGFloat = 1.15
+        let scaleReduce: CGFloat = 0.85
+        
+        if mode == .preferred {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.transform = CGAffineTransform(scaleX: scaleZoom, y: scaleZoom)
+                }) { (_) in
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.transform = CGAffineTransform(scaleX: scaleReduce, y: scaleReduce)
+                    }) { (_) in
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.transform = CGAffineTransform.identity
+                        }) { (_) in
+                            completion()
+                        }
+                    }
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.transform = CGAffineTransform(scaleX: scaleReduce, y: scaleReduce)
+                }) { (_) in
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.transform = CGAffineTransform(scaleX: scaleZoom, y: scaleZoom)
+                    }) { (_) in
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.transform = CGAffineTransform.identity
+                        }) { (_) in
+                            completion()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
