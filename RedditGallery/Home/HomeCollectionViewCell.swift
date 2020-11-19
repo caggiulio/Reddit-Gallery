@@ -43,19 +43,17 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func saveImageAction(_ sender: RedditFavouritesButton) {
-        if let img = homeCellViewModel?.image, let imgId = img.id, let index = homeCellViewModel?.index {
+        if let img = homeCellViewModel?.image {
             if img.isPreferred {
                 img.isPreferred = false
-                CoreDataRepo.shared.deleteImage(id: imgId)
                 self.animateCell {
-                    self.homeCellViewModel?.updateRepo(img: img)
+                    self.homeCellViewModel?.updateRepo(img: img, method: .remove)
                 }
             } else {
                 if let imgOnImageView = self.homeImageViewCell.image, let imgData = imgOnImageView.pngData() {
                     img.isPreferred = true
-                    CoreDataRepo.shared.addFavouriteImage(id: imgId, imageData: imgData)
                     self.animateCell {
-                        self.homeCellViewModel?.updateRepo(img: img)
+                        self.homeCellViewModel?.updateRepo(img: img, method: .add, data: imgData)
                     }
                 }
             }

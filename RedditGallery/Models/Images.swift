@@ -23,7 +23,7 @@ class Images: Codable, Equatable {
         resolutions = try rootContainer.decodeIfPresent([Resolutions].self, forKey: .resolutions)
         id = try rootContainer.decodeIfPresent(String.self, forKey: .id)
         if let id = id {
-            isPreferred = CoreDataRepo.shared.IfStored(id: id)
+            isPreferred = CoreDataRepo.IfStored(id: id)
         }
     }
     

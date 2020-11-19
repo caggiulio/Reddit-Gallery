@@ -1,33 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zV6-hi-UeC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zV6-hi-UeC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Favourites View Controller-->
         <scene sceneID="iPj-i5-1Yu">
             <objects>
-                <viewController id="ZMR-ph-nae" sceneMemberID="viewController">
+                <viewController id="ZMR-ph-nae" customClass="FavouritesViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1YR-Yz-J5Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvz-Fs-tFy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DTI-c6-OLd">
+                                    <size key="itemSize" width="90" height="87"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favouriteCollectionViewCell" id="sjA-X5-r3a" customClass="FavouriteCollectionViewCell" customModule="RedditGallery" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="90" height="87"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WU3-4p-NL6">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="908-47-P3h">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="87"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZhC-Aw-dMy" customClass="RedditImageView" customModule="RedditGallery" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="87"/>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAZ-8r-dPZ" customClass="RedditFavouritesButton" customModule="RedditGallery" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="8" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="IAZ-8r-dPZ" secondAttribute="height" multiplier="1:1" id="8oZ-t9-jyt"/>
+                                                                <constraint firstAttribute="height" constant="30" id="c8S-1r-t4R"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="removeFavourite:" destination="sjA-X5-r3a" eventType="touchUpInside" id="XIP-Gx-k22"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="IAZ-8r-dPZ" firstAttribute="leading" secondItem="908-47-P3h" secondAttribute="leading" constant="10" id="34i-A0-QiN"/>
+                                                        <constraint firstItem="IAZ-8r-dPZ" firstAttribute="top" secondItem="908-47-P3h" secondAttribute="top" constant="8" id="AT3-QP-e4H"/>
+                                                        <constraint firstItem="ZhC-Aw-dMy" firstAttribute="top" secondItem="908-47-P3h" secondAttribute="top" id="elu-VR-0vG"/>
+                                                        <constraint firstItem="ZhC-Aw-dMy" firstAttribute="leading" secondItem="908-47-P3h" secondAttribute="leading" id="kEi-XU-sXO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZhC-Aw-dMy" secondAttribute="trailing" id="nRz-9h-X2c"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZhC-Aw-dMy" secondAttribute="bottom" id="nyZ-0Z-x20"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="908-47-P3h" secondAttribute="bottom" id="0Cd-ZH-vWV"/>
+                                                <constraint firstItem="908-47-P3h" firstAttribute="leading" secondItem="WU3-4p-NL6" secondAttribute="leading" id="gtR-vD-eXF"/>
+                                                <constraint firstAttribute="trailing" secondItem="908-47-P3h" secondAttribute="trailing" id="jKS-1A-LN9"/>
+                                                <constraint firstItem="908-47-P3h" firstAttribute="top" secondItem="WU3-4p-NL6" secondAttribute="top" id="y1I-Pw-jJT"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="90" height="87"/>
+                                        <connections>
+                                            <outlet property="favouriteImageView" destination="ZhC-Aw-dMy" id="6YW-AB-vid"/>
+                                            <outlet property="favouriteRemoveButton" destination="IAZ-8r-dPZ" id="LF3-dm-HTE"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="AXp-rF-W4W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nvz-Fs-tFy" firstAttribute="leading" secondItem="AXp-rF-W4W" secondAttribute="leading" id="62P-Ca-OLy"/>
+                            <constraint firstItem="AXp-rF-W4W" firstAttribute="bottom" secondItem="nvz-Fs-tFy" secondAttribute="bottom" id="BFD-8P-WEf"/>
+                            <constraint firstItem="AXp-rF-W4W" firstAttribute="trailing" secondItem="nvz-Fs-tFy" secondAttribute="trailing" id="Dtl-Cg-OEn"/>
+                            <constraint firstItem="nvz-Fs-tFy" firstAttribute="top" secondItem="AXp-rF-W4W" secondAttribute="top" id="WBi-bD-9e5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U6a-YT-WWh"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="favouritesCollectionView" destination="nvz-Fs-tFy" id="3nf-l7-5jR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9by-6D-vLj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1496" y="447"/>
+            <point key="canvasLocation" x="1495.6521739130435" y="446.65178571428567"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Cov-cd-1nX">

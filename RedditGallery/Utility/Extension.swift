@@ -96,3 +96,25 @@ extension Array where Element: Equatable {
     }
   }
 }
+
+extension UICollectionView {
+    func fullyVisibleCells() -> [IndexPath] {
+
+        var returnCells = [IndexPath]()
+
+        var vCells = self.visibleCells
+        vCells = vCells.filter({ cell -> Bool in
+            let cellRect = self.convert(cell.frame, to: self.superview)
+            return self.frame.contains(cellRect)
+        })
+
+        vCells.forEach({
+            if let pth = self.indexPath(for: $0) {
+                returnCells.append(pth)
+            }
+        })
+
+        return returnCells
+
+    }
+}

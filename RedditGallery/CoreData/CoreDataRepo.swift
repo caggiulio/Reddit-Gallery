@@ -10,17 +10,32 @@ import Foundation
 import CoreData
 import UIKit
 
+protocol CoreDataRepoDelegate: AnyObject {
+    func didCoreDataChanged()
+}
+
 class CoreDataRepo {
-    static let shared = CoreDataRepo()
+    static private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private var context: NSManagedObjectContext
+    static var observers = [CoreDataRepoDelegate]()
     
     private init() {
-        let application = UIApplication.shared.delegate as! AppDelegate
-        self.context = application.persistentContainer.viewContext
+        
     }
     
-    func addFavouriteImage(id: String, imageData: Data) {
+    static func addCoreDataRepoObserver(observer: CoreDataRepoDelegate) {
+        observers.append(observer)
+    }
+    
+    static func notifyObservers() {
+        DispatchQueue.main.async {
+            for o in observers {
+                o.didCoreDataChanged()
+            }
+        }
+    }
+    
+    static func addFavouriteImage(id: String, imageData: Data) {
         if IfStored(id: id) {
             return
         }
@@ -35,9 +50,11 @@ class CoreDataRepo {
         } catch let error {
             print(error)
         }
+        
+        notifyObservers()
     }
     
-    func loadAllImages() -> [FavouritesImages] {
+    static func loadAllImages() -> [FavouritesImages] {
         var fetchingImage = [FavouritesImages]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavouritesImages")
         
@@ -50,7 +67,7 @@ class CoreDataRepo {
         return fetchingImage
     }
     
-    private func loadImagesFromFetchRequest(request: NSFetchRequest<FavouritesImages>) -> [FavouritesImages] {
+    static private func loadImagesFromFetchRequest(request: NSFetchRequest<FavouritesImages>) -> [FavouritesImages] {
         var array = [FavouritesImages]()
         do {
             array = try self.context.fetch(request)
@@ -62,7 +79,7 @@ class CoreDataRepo {
         return array
     }
     
-    func loadImageFromID(id: String) -> FavouritesImages? {
+    static func loadImageFromID(id: String) -> FavouritesImages? {
         let request: NSFetchRequest<FavouritesImages> = NSFetchRequest(entityName: "FavouritesImages")
         request.returnsObjectsAsFaults = false
         
@@ -77,7 +94,7 @@ class CoreDataRepo {
         }
     }
     
-    func deleteImage(id: String) {
+    static func deleteImage(id: String) {
         if let img = self.loadImageFromID(id: id) {
             self.context.delete(img)
             
@@ -87,9 +104,11 @@ class CoreDataRepo {
                print(error)
             }
         }
+        
+        notifyObservers()
     }
     
-    func IfStored(id: String) -> Bool {
+    static func IfStored(id: String) -> Bool {
         if let _ = self.loadImageFromID(id: id) {
             return true
         }

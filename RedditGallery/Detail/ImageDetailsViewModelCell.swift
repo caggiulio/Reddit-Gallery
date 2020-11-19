@@ -18,7 +18,16 @@ class ImageDetailsViewModelCell: NSObject {
         self.index = index
     }
     
-    func updateRepo(img: Images) {
+    func updateRepo(img: Images, method: FavouriteMethod, data: Data? = nil) {
+        if let id = img.id {
+            if method == .remove {
+                CoreDataRepo.deleteImage(id: id)
+            } else {
+                if let data = data {
+                    CoreDataRepo.addFavouriteImage(id: id, imageData: data)
+                }
+            }
+        }
         ImagesRepo.replaceImage(img: img, index: index)
     }
 
