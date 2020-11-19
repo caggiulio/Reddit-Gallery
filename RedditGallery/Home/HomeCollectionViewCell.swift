@@ -8,11 +8,6 @@
 import UIKit
 import SDWebImage
 
-protocol HomeCollectionViewCellDelegate: AnyObject {
-    func deleteFavouriteImage()
-    func saveFavouriteImage()
-}
-
 class HomeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favouritesButton: RedditFavouritesButton!
@@ -22,10 +17,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var homeImageViewCell: RedditImageView!
         
     var image: Images?
-    var homeRepo: HomeRepo?
     var index: Int = 0
-    
-    weak var delegate: HomeCollectionViewCellDelegate?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -43,9 +35,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
             self.homeImageViewCell.sd_setImage(with: URL(string: url.convertSpecialCharacters()), placeholderImage: UIImage(named: "placeholder"))
             self.titleLabel.text = image.title
             self.authorLabel.text = image.author
-            DispatchQueue.main.async {
-                self.favouritesButton.setSelected(image.isPreferred)
-            }
+            self.favouritesButton.setSelected(image.isPreferred)
         }
     }
     
@@ -54,12 +44,35 @@ class HomeCollectionViewCell: UICollectionViewCell {
             if img.isPreferred {
                 img.isPreferred = false
                 CoreDataRepo.shared.deleteImage(id: imgId)
-                homeRepo?.images[index] = img
+                self.animateCell {
+                    ImagesRepo.replaceImage(img: img, index: self.index)
+                }
             } else {
                 if let imgOnImageView = self.homeImageViewCell.image, let imgData = imgOnImageView.pngData() {
                     img.isPreferred = true
                     CoreDataRepo.shared.addFavouriteImage(id: imgId, imageData: imgData)
-                    homeRepo?.images[index] = img
+                    self.animateCell {
+                        ImagesRepo.replaceImage(img: img, index: self.index)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func animateCell(completion: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }) { (_) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                }) { (_) in
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.transform = CGAffineTransform.identity
+                    }) { (_) in
+                        completion()
+                    }
                 }
             }
         }

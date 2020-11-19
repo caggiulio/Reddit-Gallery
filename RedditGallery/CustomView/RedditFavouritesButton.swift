@@ -28,30 +28,32 @@ class RedditFavouritesButton: UIButton {
         self.tintColor = .systemRed
     }
     
-    @objc func defaultAction (_ sender:UIButton) {
+    @objc func defaultAction (_ sender: UIButton) {
         
-        func animate() {
-            DispatchQueue.main.async {
-                let pulse = CASpringAnimation(keyPath: "transform.scale")
-                pulse.duration = 0.3
-                pulse.fromValue = 1.0
-                pulse.toValue = 1.12
-                pulse.autoreverses = true
-                pulse.repeatCount = 2
-                pulse.initialVelocity = 1.0
-                pulse.damping = 0.8
-                self.layer.add(pulse, forKey: nil)
-            }
-        }
-        
-        animate()
     }
     
     func setSelected(_ value: Bool) {
-        if value {
-            self.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            self.setImage(UIImage(systemName: "heart"), for: .normal)
+        DispatchQueue.main.async {
+            
+            func animate() {
+                    let pulse = CASpringAnimation(keyPath: "transform.scale")
+                    pulse.duration = 0.3
+                    pulse.fromValue = 1.0
+                    pulse.toValue = 1.12
+                    pulse.autoreverses = true
+                    pulse.repeatCount = 2
+                    pulse.initialVelocity = 1.0
+                    pulse.damping = 0.8
+                    self.layer.add(pulse, forKey: nil)
+            }
+            
+            animate()
+            
+            if value {
+                self.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                self.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
         }
     }
 

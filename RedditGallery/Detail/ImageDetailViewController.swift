@@ -26,7 +26,7 @@ class ImageDetailViewController: UIViewController {
         imagesDetailCollectionView.isPagingEnabled = false
         imagesDetailCollectionView.decelerationRate = .fast
         
-        imageDetailRepo?.delegate = self
+        ImagesRepo.addImagesRepoObserver(observer: self)
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,26 +38,26 @@ class ImageDetailViewController: UIViewController {
     }
     
     func scrollToSelectedIndex() {
-        self.imagesDetailCollectionView.scrollToItem(at: IndexPath(item: imageDetailRepo?.selectedIndex ?? 0, section: 0), at: .centeredHorizontally, animated: false)
+        self.imagesDetailCollectionView.scrollToItem(at: IndexPath(item: imageDetailRepo?.selectedIndex ?? 0, section: 0), at: .left, animated: false)
     }
 }
 
 extension ImageDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageDetailRepo?.images.count ?? 0
+        return ImagesRepo.images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageDetailViewController", for: indexPath) as! ImageDetailCollectionViewCell
-        if let img = imageDetailRepo?.images[indexPath.item] {
-            cell.fillCell(image: img)
-            cell.layoutIfNeeded()
-        }
+        let img = ImagesRepo.images[indexPath.item]
+        cell.fillCell(image: img)
+        cell.index = indexPath.item
+        
         return cell
     }
 }
 
-extension ImageDetailViewController: ImageDetailRepoDelegate {
+extension ImageDetailViewController: ImagesRepoDelegate {
     func reloadData() {
         imagesDetailCollectionView.reloadData()
     }

@@ -7,24 +7,11 @@
 
 import Foundation
 
-protocol ImageDetailRepoDelegate: AnyObject {
-    func reloadData()
-}
-
 class ImageDetailRepo: NSObject {
     
-    init(images: [Images], selectedIndex: Int) {
+    init(selectedIndex: Int) {
         super.init()
-        self.images = images
         self.selectedIndex = selectedIndex
-    }
-    
-    weak var delegate: ImageDetailRepoDelegate?
-    
-    var images: [Images] = [Images]() {
-        didSet {
-            delegate?.reloadData()
-        }
     }
     
     var selectedIndex: Int = 0

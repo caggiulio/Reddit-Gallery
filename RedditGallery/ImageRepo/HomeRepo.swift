@@ -1,5 +1,5 @@
 //
-//  HomeRepo.swift
+//  ImagesRepo.swift
 //  RedditGallery
 //
 //  Created by Nunzio Giulio Caggegi on 17/11/20.
@@ -9,28 +9,41 @@ import Foundation
 import HTTPiOSCLient
 import Alamofire
 
-protocol HomeRepoDelegate: AnyObject {
+protocol ImagesRepoDelegate: AnyObject {
     func reloadData()
 }
 
-class HomeRepo: NSObject {
+class ImagesRepo: NSObject {
     
-    override init() {}
-    weak var delegate: HomeRepoDelegate?
+    override init() { }
     
-    var images: [Images] = [Images]() {
+    static var observers = [ImagesRepoDelegate]()
+    
+    static var images: [Images] = [Images]() {
         didSet {
-            delegate?.reloadData()
+            notifyObservers()
         }
     }
     
-    var textToSearch: String = "" {
+    static func addImagesRepoObserver(observer: ImagesRepoDelegate) {
+        observers.append(observer)
+    }
+    
+    static func notifyObservers() {
+        DispatchQueue.main.async {
+            for o in observers {
+                o.reloadData()
+            }
+        }
+    }
+    
+    static var textToSearch: String = "" {
         didSet {
             search(searchToText: textToSearch)
         }
     }
     
-    func search(searchToText: String) {
+    static func search(searchToText: String) {
         if !searchToText.isEmpty {
             self.cancelRequest()
             self.fetchImages(searchString: searchToText)
@@ -39,7 +52,7 @@ class HomeRepo: NSObject {
         }
     }
     
-    func fetchImages(searchString: String) {
+    static func fetchImages(searchString: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             Falcon.request(url: "/r/\(searchString)/top.json", method: .get) { (result) in
                 switch result {
@@ -72,7 +85,11 @@ class HomeRepo: NSObject {
         }
     }
     
-    func cancelRequest() {
+    static func replaceImage(img: Images, index: Int) {
+        ImagesRepo.images[index] = img
+    }
+    
+    static func cancelRequest() {
         AF.session.getAllTasks { (tasks) in
             tasks.forEach { $0.cancel() }
         }

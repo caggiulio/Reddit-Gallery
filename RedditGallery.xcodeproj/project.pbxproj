@@ -163,6 +163,7 @@
 				30ECDF3E2564491200F06E78 /* RedditGallery.entitlements */,
 				30ECDEF72564477200F06E78 /* AppDelegate.swift */,
 				30ECDEF92564477200F06E78 /* SceneDelegate.swift */,
+				30ECE0D82565CE2E00F06E78 /* ImageRepo */,
 				30ECDF7C2564706700F06E78 /* CustomView */,
 				30ECDFB32565021300F06E78 /* Utility */,
 				30ECDF6225644DBE00F06E78 /* Models */,
@@ -199,7 +200,6 @@
 			children = (
 				30ECDEFD2564477200F06E78 /* Main.storyboard */,
 				30ECDF5425644C4000F06E78 /* HomeViewController.swift */,
-				30ECDF5D25644D2500F06E78 /* HomeRepo.swift */,
 				30ECDF722564521F00F06E78 /* HomeCollectionViewCell.swift */,
 			);
 			path = Home;
@@ -256,6 +256,14 @@
 				30ECE09C25659E3F00F06E78 /* CoreDataRepo.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		30ECE0D82565CE2E00F06E78 /* ImageRepo */ = {
+			isa = PBXGroup;
+			children = (
+				30ECDF5D25644D2500F06E78 /* HomeRepo.swift */,
+			);
+			path = ImageRepo;
 			sourceTree = "<group>";
 		};
 		BD62A8CC4E191701AF20F079 /* Pods */ = {

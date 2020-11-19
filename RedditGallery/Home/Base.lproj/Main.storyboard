@@ -169,16 +169,47 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTk-Qa-9zG" customClass="RedditImageView" customModule="RedditGallery" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="277" height="377"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="8nY-DN-JPd" customClass="RedditLabel" customModule="RedditGallery" customModuleProvider="target">
+                                                    <rect key="frame" x="201.5" y="332" width="40.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-b4-qhD" customClass="RedditSubtitleLabel" customModule="RedditGallery" customModuleProvider="target">
+                                                    <rect key="frame" x="201.5" y="304" width="40.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sih-Ri-4fi" customClass="RedditFavouritesButton" customModule="RedditGallery" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="20" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="P6p-iv-Qzz"/>
+                                                        <constraint firstAttribute="width" secondItem="sih-Ri-4fi" secondAttribute="height" multiplier="1:1" id="oEX-Cd-JAZ"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="saveImageAction:" destination="aV4-Xx-k68" eventType="touchUpInside" id="7bq-XE-yIa"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0ni-b4-qhD" secondAttribute="trailing" constant="35" id="2uH-U6-Wwj"/>
+                                                <constraint firstItem="sih-Ri-4fi" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" constant="20" id="DiE-sU-whM"/>
                                                 <constraint firstAttribute="bottom" secondItem="fTk-Qa-9zG" secondAttribute="bottom" id="H3I-3N-Rr6"/>
+                                                <constraint firstAttribute="bottom" secondItem="0ni-b4-qhD" secondAttribute="bottom" constant="52.5" id="Jwh-wt-bQN"/>
+                                                <constraint firstItem="sih-Ri-4fi" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" constant="20" id="K9o-u4-iQQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="fTk-Qa-9zG" secondAttribute="trailing" id="QDh-br-a3N"/>
                                                 <constraint firstItem="fTk-Qa-9zG" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" id="Z4q-hl-ZBf"/>
                                                 <constraint firstItem="fTk-Qa-9zG" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" id="ctW-Tx-Bzn"/>
+                                                <constraint firstAttribute="trailing" secondItem="8nY-DN-JPd" secondAttribute="trailing" constant="35" id="cu3-Yd-Xuj"/>
+                                                <constraint firstAttribute="bottom" secondItem="8nY-DN-JPd" secondAttribute="bottom" constant="24.5" id="u0y-Nm-6m4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="authorLabel" destination="0ni-b4-qhD" id="9sg-RD-rlr"/>
+                                            <outlet property="favouriteButton" destination="sih-Ri-4fi" id="WgE-Ng-EGY"/>
                                             <outlet property="imageDetailView" destination="fTk-Qa-9zG" id="DjP-J9-oWl"/>
+                                            <outlet property="titleLabel" destination="8nY-DN-JPd" id="To4-zy-3Rh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
