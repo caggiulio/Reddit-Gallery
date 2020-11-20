@@ -9,7 +9,6 @@ import UIKit
 
 class ImageDetailViewController: UIViewController {
     
-    var images: [Images] = [Images]()
     var isAlreadyPresented: Bool = false
     
     var imageDetailViewModel: ImageDetailViewModel?

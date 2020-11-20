@@ -5,7 +5,7 @@
 //
 import Foundation
 
-class Images: Codable, Equatable {
+public class Images: Codable, Equatable {
 
 	let resolutions: [Resolutions]?
 	let id: String?

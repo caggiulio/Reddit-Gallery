@@ -19,10 +19,7 @@ class Children: Codable {
                 case preview = "preview"
                 case subreddit = "subreddit"
                 case authorFullname = "author_fullname"
-                case thumbnailHeight = "thumbnail_height"
                 case name = "name"
-                case thumbnailWidth = "thumbnail_width"
-                case thumbnail = "thumbnail"
                 case title = "title"
             }
         }

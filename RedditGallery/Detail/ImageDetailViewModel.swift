@@ -21,15 +21,11 @@ class ImageDetailViewModel: NSObject, ImagesRepoDelegate {
         }
     }
     
-    internal func fetchImages() {
-        self.images = ImagesRepo.images
-    }
-    
-    init(selectedIndex: Int) {
+    init(selectedIndex: Int, images: [Images]) {
         super.init()
         self.selectedIndex = selectedIndex
         ImagesRepo.addImagesRepoObserver(observer: self)
-        fetchImages()
+        self.images = images
     }
     
     var selectedIndex: Int = 0

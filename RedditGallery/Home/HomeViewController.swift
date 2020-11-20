@@ -74,11 +74,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(identifier: "imageDetailViewController") as! ImageDetailViewController
-        let imageDetailViewModel = ImageDetailViewModel(selectedIndex: indexPath.item)
-        vc.setup(vm: imageDetailViewModel)
-        
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(vc, animated: true)
+        if let imgs = homeViewModel?.images {
+            vc.setup(vm: ImageDetailViewModel(selectedIndex: indexPath.item, images: imgs))
+            
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

@@ -27,7 +27,7 @@
 		30ECDF122564477500F06E78 /* RedditGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF112564477500F06E78 /* RedditGalleryTests.swift */; };
 		30ECDF1D2564477500F06E78 /* RedditGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF1C2564477500F06E78 /* RedditGalleryUITests.swift */; };
 		30ECDF5525644C4000F06E78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF5425644C4000F06E78 /* HomeViewController.swift */; };
-		30ECDF5E25644D2500F06E78 /* HomeRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF5D25644D2500F06E78 /* HomeRepo.swift */; };
+		30ECDF5E25644D2500F06E78 /* ImagesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF5D25644D2500F06E78 /* ImagesRepo.swift */; };
 		30ECDF6925644DCD00F06E78 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF6325644DCC00F06E78 /* Images.swift */; };
 		30ECDF6A25644DCD00F06E78 /* RedditData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF6425644DCC00F06E78 /* RedditData.swift */; };
 		30ECDF6B25644DCD00F06E78 /* RedditResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECDF6525644DCD00F06E78 /* RedditResult.swift */; };
@@ -97,7 +97,7 @@
 		30ECDF1E2564477500F06E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30ECDF3E2564491200F06E78 /* RedditGallery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RedditGallery.entitlements; sourceTree = "<group>"; };
 		30ECDF5425644C4000F06E78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		30ECDF5D25644D2500F06E78 /* HomeRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepo.swift; sourceTree = "<group>"; };
+		30ECDF5D25644D2500F06E78 /* ImagesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepo.swift; sourceTree = "<group>"; };
 		30ECDF6325644DCC00F06E78 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		30ECDF6425644DCC00F06E78 /* RedditData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditData.swift; sourceTree = "<group>"; };
 		30ECDF6525644DCD00F06E78 /* RedditResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditResult.swift; sourceTree = "<group>"; };
@@ -310,32 +310,32 @@
 		30ECE0D82565CE2E00F06E78 /* ImageRepo */ = {
 			isa = PBXGroup;
 			children = (
-				30ECDF5D25644D2500F06E78 /* HomeRepo.swift */,
+				30ECDF5D25644D2500F06E78 /* ImagesRepo.swift */,
 			);
 			path = ImageRepo;
-			sourceTree = "<group>";
-		};
-		59A764EF0C9C02C0ADE56C05 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				86DE6BFC60BD67FD9B4D5EBE /* Pods_RedditGallery.framework */,
-				673CB83670934949501911FA /* Pods_RedditGallery_RedditGalleryUITests.framework */,
-				7501F5AF63487268D093426A /* Pods_RedditGalleryTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BD62A8CC4E191701AF20F079 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6906D94AAABFAB5F2AC89DFB /* Pods-RedditGallery.debug.xcconfig */,
-				E2163EC9EE828389B747FEC1 /* Pods-RedditGallery.release.xcconfig */,
-				A4CA06DE007DD81C98E74564 /* Pods-RedditGallery-RedditGalleryUITests.debug.xcconfig */,
-				45AF56B4062E2734931E6153 /* Pods-RedditGallery-RedditGalleryUITests.release.xcconfig */,
-				C0476338070172C46BDE7EF5 /* Pods-RedditGalleryTests.debug.xcconfig */,
-				4217134D5F541FBAF6767EC5 /* Pods-RedditGalleryTests.release.xcconfig */,
+				BD48FB71FDBA38F3868D49B4 /* Pods-RedditGallery.debug.xcconfig */,
+				0910F2D6A7D6CC912DFCBE6D /* Pods-RedditGallery.release.xcconfig */,
+				C5CC118AC26C5BB42EE9E77C /* Pods-RedditGallery-RedditGalleryUITests.debug.xcconfig */,
+				8A98916BF290640786104E30 /* Pods-RedditGallery-RedditGalleryUITests.release.xcconfig */,
+				8E7936AC64118F40669197D4 /* Pods-RedditGalleryTests.debug.xcconfig */,
+				C2C165D1FA0B4A85129D65BA /* Pods-RedditGalleryTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E89E4F034AB1457C723F0A13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41DFF0DE42FC1EA75DE5EE93 /* Pods_RedditGallery.framework */,
+				21AD4F57A4EE3D3B23586A41 /* Pods_RedditGallery_RedditGalleryUITests.framework */,
+				3BDF3ED598BB6D0093AB7761 /* Pods_RedditGalleryTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
