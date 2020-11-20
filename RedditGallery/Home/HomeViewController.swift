@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewModelDelegate {
     func reloadHomeData() {
+        self.hideLoader()
         self.homeCollectionView.reloadData()
         setBackgroundScrollImages()
         self.homeCollectionView.layoutIfNeeded()
@@ -52,7 +53,10 @@ extension HomeViewController: HomeViewModelDelegate {
     }
     
     func notifyNoData() {
-        
+        self.hideLoader()
+        let emptyStateView = storyboard?.instantiateViewController(identifier: "emptyState").view
+        self.homeCollectionView.backgroundView = nil
+        self.homeCollectionView.backgroundView = emptyStateView
     }
 }
 
@@ -81,8 +85,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            self.homeCollectionView.backgroundView = nil
+        }
+        
         self.searchTask?.cancel()
         let task = DispatchWorkItem { [weak self] in
+            self?.showLoader()
             self?.homeViewModel?.search(textToSearch: searchText)
         }
         self.searchTask = task

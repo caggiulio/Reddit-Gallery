@@ -89,12 +89,11 @@ public extension UIImageView {
 }
 
 extension Array where Element: Equatable {
-  
   mutating func removeEqualItems(_ item: Element) {
-    self = self.filter { (currentItem: Element) -> Bool in
-      return currentItem != item
+        self = self.filter { (currentItem: Element) -> Bool in
+            return currentItem != item
+        }
     }
-  }
 }
 
 extension UICollectionView {
@@ -175,10 +174,58 @@ extension UIImageView {
   }
 
   @objc
-  private func startZooming(_ sender: UIPinchGestureRecognizer) {
-    let scaleResult = sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale)
-    guard let scale = scaleResult, scale.a > 1, scale.d > 1 else { return }
-    sender.view?.transform = scale
-    sender.scale = 1
-  }
+    private func startZooming(_ sender: UIPinchGestureRecognizer) {
+        let scaleResult = sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale)
+        guard let scale = scaleResult, scale.a > 1, scale.d > 1 else { return }
+        sender.view?.transform = scale
+        sender.scale = 1
+    }
+}
+
+public extension UIWindow {
+    static var key: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+    
+    func showLoader() {
+        if let kWindow = UIWindow.key {
+            let activityIndicator = UIActivityIndicatorView()
+            let containerLoader = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            containerLoader.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
+            containerLoader.layer.cornerRadius = 10
+            containerLoader.center = CGPoint(x: kWindow.screen.bounds.width / 2, y: kWindow.screen.bounds.height / 2)
+            containerLoader.tag = 500
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+            activityIndicator.center = CGPoint(x: containerLoader.bounds.width / 2, y: containerLoader.bounds.height / 2)
+            activityIndicator.color = UIColor.white
+            activityIndicator.startAnimating()
+            containerLoader.addSubview(activityIndicator)
+            kWindow.addSubview(containerLoader)
+        }
+    }
+    
+    func hideLoader() {
+        if let kWindow = UIWindow.key {
+            let act = kWindow.viewWithTag(500)
+            act?.removeFromSuperview()
+        }
+    }
+}
+
+public extension UIViewController {
+    func showLoader() {
+        if let k = UIWindow.key {
+            k.showLoader()
+        }
+    }
+    
+    func hideLoader() {
+        if let k = UIWindow.key {
+            k.hideLoader()
+        }
+    }
 }
