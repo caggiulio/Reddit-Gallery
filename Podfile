@@ -5,7 +5,7 @@ target 'RedditGallery' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Hero'
-  pod 'HTTPiOSCLient', :git => 'https://github.com/caggiulio/HTTPiOSClient', :branch => 'without_dependency'
+  pod 'Falcon', :git => 'https://github.com/caggiulio/FalconAlamofire' 
   pod 'SDWebImage'
   # Pods for RedditGallery
 

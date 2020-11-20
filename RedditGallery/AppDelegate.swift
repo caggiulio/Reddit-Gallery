@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-import HTTPiOSCLient
+import Falcon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import HTTPiOSCLient
+import Falcon
 import Alamofire
 
 protocol ImagesRepoDelegate: AnyObject {
