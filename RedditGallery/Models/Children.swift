@@ -9,9 +9,6 @@ class Children: Codable {
     var subreddit: String? = nil
     var authorFullname: String? = nil
     var title: String? = nil
-    var thumbnailHeight: Int? = nil
-    var thumbnailWidth: Int? = nil
-    var thumbnail: String? = nil
     var preview: Preview? = nil
     
     private enum RootCodingKeys: String, CodingKey {
@@ -38,9 +35,6 @@ class Children: Codable {
         preview = try userDataContainer.decodeIfPresent(Preview.self, forKey: .preview)
         subreddit = try userDataContainer.decode(String.self, forKey: .subreddit)
         authorFullname = try userDataContainer.decode(String.self, forKey: .authorFullname)
-        thumbnailHeight = try userDataContainer.decodeIfPresent(Int.self, forKey: .thumbnailHeight)
-        thumbnailWidth = try userDataContainer.decodeIfPresent(Int.self, forKey: .thumbnailWidth)
-        thumbnail = try userDataContainer.decodeIfPresent(String.self, forKey: .thumbnail)
         title = try userDataContainer.decode(String.self, forKey: .title)
     }
 

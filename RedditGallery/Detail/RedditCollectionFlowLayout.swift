@@ -19,8 +19,8 @@ class RedditCollectionFlowLayout: UICollectionViewFlowLayout {
         super.init(coder: aDecoder)
     }
     
-    let width: CGFloat = 350
-    let height: CGFloat = 500
+    let size = UIDevice.current.userInterfaceIdiom == .phone ? CGSize.init(width: 350, height: 500) : CGSize.init(width: 600, height: 900)
+    
     let minDistanceBeetweenCells: CGFloat = 10
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
@@ -39,15 +39,15 @@ class RedditCollectionFlowLayout: UICollectionViewFlowLayout {
     }
 
     func calculatedPageWidth() -> CGFloat {
-        return width + minDistanceBeetweenCells
+        return size.width + minDistanceBeetweenCells
     }
     
     override var itemSize: CGSize {
         set {
-            self.itemSize = CGSize(width: width, height: height)
+            self.itemSize = CGSize(width: size.width, height: size.height)
         }
         get {
-            return CGSize(width: width, height: height)
+            return CGSize(width: size.width, height: size.height)
         }
     }
 }

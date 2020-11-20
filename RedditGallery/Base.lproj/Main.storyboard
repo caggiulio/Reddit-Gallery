@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvz-Fs-tFy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="685"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DTI-c6-OLd">
                                     <size key="itemSize" width="90" height="87"/>
@@ -78,14 +78,36 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpf-IU-2lq">
+                                <rect key="frame" x="20.5" y="88" width="373" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on hearth icon to remove from list. Tap on image to zoom it" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="BJG-4R-I9a" customClass="RedditSubtitleLabel" customModule="RedditGallery" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BJG-4R-I9a" firstAttribute="leading" secondItem="fpf-IU-2lq" secondAttribute="leading" id="BTr-VP-MIV"/>
+                                    <constraint firstAttribute="trailing" secondItem="BJG-4R-I9a" secondAttribute="trailing" id="e9y-lQ-7LH"/>
+                                    <constraint firstAttribute="bottom" secondItem="BJG-4R-I9a" secondAttribute="bottom" id="n9c-3Z-sKF"/>
+                                    <constraint firstAttribute="height" constant="40" id="vqF-mo-e6l"/>
+                                    <constraint firstItem="BJG-4R-I9a" firstAttribute="top" secondItem="fpf-IU-2lq" secondAttribute="top" id="zO0-UK-gvN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AXp-rF-W4W"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fpf-IU-2lq" firstAttribute="top" secondItem="AXp-rF-W4W" secondAttribute="top" id="3CZ-rI-pAi"/>
                             <constraint firstItem="nvz-Fs-tFy" firstAttribute="leading" secondItem="AXp-rF-W4W" secondAttribute="leading" id="62P-Ca-OLy"/>
+                            <constraint firstItem="nvz-Fs-tFy" firstAttribute="top" secondItem="fpf-IU-2lq" secondAttribute="bottom" id="650-vZ-GmI"/>
                             <constraint firstItem="AXp-rF-W4W" firstAttribute="bottom" secondItem="nvz-Fs-tFy" secondAttribute="bottom" id="BFD-8P-WEf"/>
                             <constraint firstItem="AXp-rF-W4W" firstAttribute="trailing" secondItem="nvz-Fs-tFy" secondAttribute="trailing" id="Dtl-Cg-OEn"/>
-                            <constraint firstItem="nvz-Fs-tFy" firstAttribute="top" secondItem="AXp-rF-W4W" secondAttribute="top" id="WBi-bD-9e5"/>
+                            <constraint firstItem="fpf-IU-2lq" firstAttribute="width" secondItem="1YR-Yz-J5Z" secondAttribute="width" multiplier="0.9" id="NZb-2v-ugU"/>
+                            <constraint firstItem="fpf-IU-2lq" firstAttribute="centerX" secondItem="AXp-rF-W4W" secondAttribute="centerX" id="sBJ-jO-sga"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U6a-YT-WWh"/>
@@ -140,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-TN-Czf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="iYe-nV-PIj">
                                     <size key="itemSize" width="128" height="128"/>
@@ -223,13 +245,13 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yY4-zs-zE2"/>
                         <constraints>
-                            <constraint firstItem="Fue-TN-Czf" firstAttribute="top" secondItem="yY4-zs-zE2" secondAttribute="top" id="BXR-22-ifW"/>
+                            <constraint firstItem="Fue-TN-Czf" firstAttribute="top" secondItem="yY4-zs-zE2" secondAttribute="top" id="Etl-SI-hTh"/>
                             <constraint firstItem="yY4-zs-zE2" firstAttribute="trailing" secondItem="Fue-TN-Czf" secondAttribute="trailing" id="MSh-eV-EHf"/>
-                            <constraint firstItem="yY4-zs-zE2" firstAttribute="bottom" secondItem="Fue-TN-Czf" secondAttribute="bottom" id="apw-Jg-W5Y"/>
+                            <constraint firstAttribute="bottom" secondItem="Fue-TN-Czf" secondAttribute="bottom" id="apw-Jg-W5Y"/>
                             <constraint firstItem="Fue-TN-Czf" firstAttribute="leading" secondItem="yY4-zs-zE2" secondAttribute="leading" id="vbb-22-BfP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="8UI-6y-Dik"/>
+                    <navigationItem key="navigationItem" id="8UI-6y-Dik"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -251,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-3R-WLH">
-                                <rect key="frame" x="0.0" y="140.5" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="114.5" width="414" height="672"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TSW-IJ-m7a">
@@ -272,13 +294,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="277" height="377"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="8nY-DN-JPd" customClass="RedditLabel" customModule="RedditGallery" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="332" width="222" height="20.5"/>
+                                                    <rect key="frame" x="20" y="332" width="40.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-b4-qhD" customClass="RedditSubtitleLabel" customModule="RedditGallery" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="304" width="222" height="20.5"/>
+                                                    <rect key="frame" x="20" y="304" width="40.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -295,7 +317,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="0ni-b4-qhD" secondAttribute="trailing" constant="35" id="2uH-U6-Wwj"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0ni-b4-qhD" secondAttribute="trailing" constant="20" symbolic="YES" id="2uH-U6-Wwj"/>
                                                 <constraint firstItem="8nY-DN-JPd" firstAttribute="top" secondItem="0ni-b4-qhD" secondAttribute="bottom" constant="7.5" id="4LT-Th-6Lf"/>
                                                 <constraint firstItem="sih-Ri-4fi" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" constant="20" id="DiE-sU-whM"/>
                                                 <constraint firstItem="8nY-DN-JPd" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" constant="20" id="FX1-a0-yb4"/>
@@ -304,7 +326,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="fTk-Qa-9zG" secondAttribute="trailing" id="QDh-br-a3N"/>
                                                 <constraint firstItem="fTk-Qa-9zG" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" id="Z4q-hl-ZBf"/>
                                                 <constraint firstItem="fTk-Qa-9zG" firstAttribute="top" secondItem="54b-ht-fHL" secondAttribute="top" id="ctW-Tx-Bzn"/>
-                                                <constraint firstAttribute="trailing" secondItem="8nY-DN-JPd" secondAttribute="trailing" constant="35" id="cu3-Yd-Xuj"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8nY-DN-JPd" secondAttribute="trailing" symbolic="YES" id="cu3-Yd-Xuj"/>
                                                 <constraint firstAttribute="bottom" secondItem="8nY-DN-JPd" secondAttribute="bottom" constant="24.5" id="u0y-Nm-6m4"/>
                                                 <constraint firstItem="0ni-b4-qhD" firstAttribute="leading" secondItem="54b-ht-fHL" secondAttribute="leading" constant="20" id="zRx-2y-gS8"/>
                                             </constraints>
@@ -328,7 +350,7 @@
                             <constraint firstItem="Hg3-3R-WLH" firstAttribute="centerX" secondItem="AiF-RS-3kf" secondAttribute="centerX" id="l0Z-D1-4fc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="He9-Dh-Hii"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="He9-Dh-Hii"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -393,14 +415,16 @@
             </objects>
             <point key="canvasLocation" x="3347" y="-113"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="D2n-cD-iaf">
             <objects>
-                <tabBarController id="zV6-hi-UeC" sceneMemberID="viewController">
+                <tabBarController id="zV6-hi-UeC" customClass="MainTabBarViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="dcy-r2-0TN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -418,7 +442,7 @@
         <scene sceneID="bDd-wf-cya">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vsm-a9-3qf" customClass="RedditNavigationViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Ygo-kS-APF"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="photo" catalog="system" selectedImage="photo.fill" id="Ygo-kS-APF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Ouy-GT-9Bi">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -429,7 +453,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="X30-SK-WIS" kind="relationship" relationship="rootViewController" id="FRH-OB-5nP"/>
+                        <segue destination="X30-SK-WIS" kind="relationship" relationship="rootViewController" id="WAP-By-PBN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aaa-dg-yXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -440,7 +464,7 @@
         <scene sceneID="cUD-Ti-wtD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sos-M6-STd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" id="X9k-wO-G49"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle" catalog="system" selectedImage="heart.circle.fill" id="X9k-wO-G49"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Dh6-4y-Ngi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -461,5 +485,9 @@
     </scenes>
     <resources>
         <image name="NoImages" width="750" height="600"/>
+        <image name="heart.circle" catalog="system" width="128" height="121"/>
+        <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
     </resources>
 </document>

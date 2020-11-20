@@ -21,6 +21,7 @@ class ImageDetailCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         imageDetailView.clipsToBounds = true
         imageDetailView.layer.cornerRadius = 10
+        imageDetailView.addGradientTransparentAtBottom()
     }
     
     func setup(vm: ImageDetailsViewModelCell) {

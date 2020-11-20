@@ -62,41 +62,40 @@ class ImagesRepo: NSObject {
     }
     
     static func fetchImages(searchString: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            Falcon.request(url: "/r/\(searchString)/top.json", method: .get) { (result) in
-                switch result {
-                
-                case let .success(response):
-                    if let data = response.data {
-                        if response.success {
-                            let redditResult = try? JSONDecoder().decode(RedditResult.self, from: data)
-                            if let data = redditResult?.data, let childrens = data.childrens {
-                                print(childrens.count)
-                                var imgsToPass: [Images] = [Images]()
-                                for child in childrens {
-                                    if let previews = child.preview {
-                                        if let img = previews.images?.first {
-                                            img.title = child.title
-                                            img.author = child.authorFullname
-                                            imgsToPass.append(img)
-                                        }
+        self.images.removeAll()
+        Falcon.request(url: "/r/\(searchString)/top.json", method: .get) { (result) in
+            switch result {
+            
+            case let .success(response):
+                if let data = response.data {
+                    if response.success {
+                        let redditResult = try? JSONDecoder().decode(RedditResult.self, from: data)
+                        if let data = redditResult?.data, let childrens = data.childrens {
+                            print(childrens.count)
+                            var imgsToPass: [Images] = [Images]()
+                            for child in childrens {
+                                if let previews = child.preview {
+                                    if let img = previews.images?.first {
+                                        img.title = child.title
+                                        img.author = child.authorFullname
+                                        imgsToPass.append(img)
                                     }
                                 }
-                                if imgsToPass.count == 0 {
-                                    notifyObserverNoData()
-                                    return
-                                } else {
-                                    self.images = imgsToPass
-                                }
-                            } else {
-                                notifyObserverNoData()
                             }
+                            if imgsToPass.count == 0 {
+                                notifyObserverNoData()
+                                return
+                            } else {
+                                self.images = imgsToPass
+                            }
+                        } else {
+                            notifyObserverNoData()
                         }
                     }
-                    
-                case let .error(response, error): break
-                    
                 }
+                
+            case let .error(response, error): break
+                
             }
         }
     }

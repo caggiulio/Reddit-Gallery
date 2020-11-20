@@ -12,6 +12,8 @@
 		300187E22566C7EB005AAA55 /* FavouritesImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300187E12566C7EB005AAA55 /* FavouritesImageCellViewModel.swift */; };
 		30C24B402566F6EC007B5D6B /* FavouriteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C24B3F2566F6EC007B5D6B /* FavouriteDetailViewController.swift */; };
 		30C24B482566F72A007B5D6B /* FavouriteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C24B472566F72A007B5D6B /* FavouriteDetailViewModel.swift */; };
+		30C24B802567AE0C007B5D6B /* TestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C24B7F2567AE0C007B5D6B /* TestExtension.swift */; };
+		30C24BD525680360007B5D6B /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C24BD425680360007B5D6B /* MainTabBarViewController.swift */; };
 		30E3766A25665BE1000D6BA6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3766925665BE1000D6BA6 /* HomeViewModel.swift */; };
 		30E3766F2566627D000D6BA6 /* HomeCollectionViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */; };
 		30E3767725666C48000D6BA6 /* ImageDetailsViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */; };
@@ -73,6 +75,8 @@
 		300187E12566C7EB005AAA55 /* FavouritesImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesImageCellViewModel.swift; sourceTree = "<group>"; };
 		30C24B3F2566F6EC007B5D6B /* FavouriteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDetailViewController.swift; sourceTree = "<group>"; };
 		30C24B472566F72A007B5D6B /* FavouriteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDetailViewModel.swift; sourceTree = "<group>"; };
+		30C24B7F2567AE0C007B5D6B /* TestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtension.swift; sourceTree = "<group>"; };
+		30C24BD425680360007B5D6B /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		30E3766925665BE1000D6BA6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModelCell.swift; sourceTree = "<group>"; };
 		30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewModelCell.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		30ECDEEB2564477200F06E78 = {
 			isa = PBXGroup;
 			children = (
+				30C24B7F2567AE0C007B5D6B /* TestExtension.swift */,
 				30ECDEF62564477200F06E78 /* RedditGallery */,
 				30ECDF102564477500F06E78 /* RedditGalleryTests */,
 				30ECDF1B2564477500F06E78 /* RedditGalleryUITests */,
@@ -201,6 +206,7 @@
 				30ECDEF72564477200F06E78 /* AppDelegate.swift */,
 				30ECDEF92564477200F06E78 /* SceneDelegate.swift */,
 				30ECDEFD2564477200F06E78 /* Main.storyboard */,
+				30C24BD425680360007B5D6B /* MainTabBarViewController.swift */,
 				30ECE09425659DF800F06E78 /* CoreData */,
 				30ECE0D82565CE2E00F06E78 /* ImageRepo */,
 				30ECDF7C2564706700F06E78 /* CustomView */,
@@ -573,6 +579,7 @@
 				30ECDF902564757100F06E78 /* Extension.swift in Sources */,
 				300187E22566C7EB005AAA55 /* FavouritesImageCellViewModel.swift in Sources */,
 				30E3767725666C48000D6BA6 /* ImageDetailsViewModelCell.swift in Sources */,
+				30C24BD525680360007B5D6B /* MainTabBarViewController.swift in Sources */,
 				30ECDF6B25644DCD00F06E78 /* RedditResult.swift in Sources */,
 				30ECE09D25659E3F00F06E78 /* CoreDataRepo.swift in Sources */,
 				30E3766A25665BE1000D6BA6 /* HomeViewModel.swift in Sources */,
@@ -611,6 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30ECDF122564477500F06E78 /* RedditGalleryTests.swift in Sources */,
+				30C24B802567AE0C007B5D6B /* TestExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

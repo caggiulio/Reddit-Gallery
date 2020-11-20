@@ -12,9 +12,9 @@ class RedditNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setLargeTitle()
+        //setLargeTitle()
     }
-    
+        
     func setLargeTitle() {
         DispatchQueue.main.async {
             self.navigationBar.prefersLargeTitles = true
