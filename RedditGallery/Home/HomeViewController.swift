@@ -15,6 +15,9 @@ class HomeViewController: UIViewController {
     var cellHeight: CGFloat = 500
     
     var homeViewModel: HomeViewModel?
+    
+    // Add a searchTask property to your controller
+    var searchTask: DispatchWorkItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,10 @@ extension HomeViewController: HomeViewModelDelegate {
         self.homeCollectionView.layoutIfNeeded()
         self.homeCollectionView.setContentOffset(CGPoint(x: homeCollectionView.contentOffset.x + 0.5, y: homeCollectionView.contentOffset.y + 0.5), animated: false)
     }
+    
+    func notifyNoData() {
+        
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchControllerDelegate {
@@ -74,7 +81,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        homeViewModel?.search(textToSearch: searchText)
+        self.searchTask?.cancel()
+        let task = DispatchWorkItem { [weak self] in
+            self?.homeViewModel?.search(textToSearch: searchText)
+        }
+        self.searchTask = task
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: task)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

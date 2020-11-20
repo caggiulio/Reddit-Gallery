@@ -11,6 +11,7 @@ import Alamofire
 
 protocol ImagesRepoDelegate: AnyObject {
     func didChangedData()
+    func noData()
 }
 
 class ImagesRepo: NSObject {
@@ -37,6 +38,14 @@ class ImagesRepo: NSObject {
         }
     }
     
+    static func notifyObserverNoData() {
+        DispatchQueue.main.async {
+            for o in observers {
+                o.noData()
+            }
+        }
+    }
+    
     static var textToSearch: String = "" {
         didSet {
             search(searchToText: textToSearch)
@@ -45,7 +54,7 @@ class ImagesRepo: NSObject {
     
     static func search(searchToText: String) {
         if !searchToText.isEmpty {
-            self.cancelRequest()
+            //Falcon.cancelAllRequest()
             self.fetchImages(searchString: searchToText)
         } else {
             self.images.removeAll()
@@ -53,7 +62,7 @@ class ImagesRepo: NSObject {
     }
     
     static func fetchImages(searchString: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             Falcon.request(url: "/r/\(searchString)/top.json", method: .get) { (result) in
                 switch result {
                 
@@ -73,7 +82,12 @@ class ImagesRepo: NSObject {
                                         }
                                     }
                                 }
-                                self.images = imgsToPass
+                                if imgsToPass.count == 0 {
+                                    notifyObserverNoData()
+                                    return
+                                } else {
+                                    self.images = imgsToPass
+                                }
                             }
                         }
                     }
@@ -89,10 +103,24 @@ class ImagesRepo: NSObject {
         ImagesRepo.images[index] = img
     }
     
+    static func addImage(img: Images) {
+        ImagesRepo.images.append(img)
+    }
+    
+    static func removeImage(img: Images) {
+        ImagesRepo.images.removeEqualItems(img)
+    }
+    
     static func cancelRequest() {
         AF.session.getAllTasks { (tasks) in
             tasks.forEach { $0.cancel() }
         }
+    }
+}
+
+extension ImagesRepoDelegate {
+    func noData() {
+
     }
 }
 

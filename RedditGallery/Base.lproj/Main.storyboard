@@ -94,11 +94,42 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="favouritesCollectionView" destination="nvz-Fs-tFy" id="3nf-l7-5jR"/>
+                        <segue destination="e3z-e5-AAs" kind="show" id="lX0-Yw-xSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9by-6D-vLj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1495.6521739130435" y="446.65178571428567"/>
+        </scene>
+        <!--Favourite Detail View Controller-->
+        <scene sceneID="rcT-Ef-nng">
+            <objects>
+                <viewController storyboardIdentifier="favouriteDetailViewController" id="e3z-e5-AAs" customClass="FavouriteDetailViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xVM-2o-P4M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vtt-Rj-8qD" customClass="RedditImageView" customModule="RedditGallery" customModuleProvider="target">
+                                <rect key="frame" x="20" y="108" width="374" height="685"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dJs-ut-AUz"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vtt-Rj-8qD" firstAttribute="top" secondItem="dJs-ut-AUz" secondAttribute="top" constant="20" id="22e-BA-Ls1"/>
+                            <constraint firstItem="dJs-ut-AUz" firstAttribute="bottom" secondItem="Vtt-Rj-8qD" secondAttribute="bottom" constant="20" id="27P-hn-0TK"/>
+                            <constraint firstItem="dJs-ut-AUz" firstAttribute="trailing" secondItem="Vtt-Rj-8qD" secondAttribute="trailing" constant="20" id="VMP-hu-oqX"/>
+                            <constraint firstItem="Vtt-Rj-8qD" firstAttribute="leading" secondItem="dJs-ut-AUz" secondAttribute="leading" constant="20" id="lS4-t0-6KJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EZk-ge-Kwe"/>
+                    <connections>
+                        <outlet property="detailImageView" destination="Vtt-Rj-8qD" id="bif-PV-mMB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Az0-gr-tYG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="439"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Cov-cd-1nX">
@@ -355,11 +386,11 @@
         <!--Favorites-->
         <scene sceneID="cUD-Ti-wtD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sos-M6-STd" customClass="RedditNavigationViewController" customModule="RedditGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sos-M6-STd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" id="X9k-wO-G49"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Dh6-4y-Ngi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Dh6-4y-Ngi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

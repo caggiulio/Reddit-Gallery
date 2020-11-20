@@ -10,6 +10,8 @@
 		300187D82566ADEE005AAA55 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300187D72566ADEE005AAA55 /* FavouriteCollectionViewCell.swift */; };
 		300187DD2566AE45005AAA55 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300187DC2566AE45005AAA55 /* FavouritesViewModel.swift */; };
 		300187E22566C7EB005AAA55 /* FavouritesImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300187E12566C7EB005AAA55 /* FavouritesImageCellViewModel.swift */; };
+		30C24B402566F6EC007B5D6B /* FavouriteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C24B3F2566F6EC007B5D6B /* FavouriteDetailViewController.swift */; };
+		30C24B482566F72A007B5D6B /* FavouriteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C24B472566F72A007B5D6B /* FavouriteDetailViewModel.swift */; };
 		30E3766A25665BE1000D6BA6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3766925665BE1000D6BA6 /* HomeViewModel.swift */; };
 		30E3766F2566627D000D6BA6 /* HomeCollectionViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */; };
 		30E3767725666C48000D6BA6 /* ImageDetailsViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */; };
@@ -69,6 +71,8 @@
 		300187D72566ADEE005AAA55 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		300187DC2566AE45005AAA55 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		300187E12566C7EB005AAA55 /* FavouritesImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesImageCellViewModel.swift; sourceTree = "<group>"; };
+		30C24B3F2566F6EC007B5D6B /* FavouriteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDetailViewController.swift; sourceTree = "<group>"; };
+		30C24B472566F72A007B5D6B /* FavouriteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDetailViewModel.swift; sourceTree = "<group>"; };
 		30E3766925665BE1000D6BA6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		30E3766E2566627D000D6BA6 /* HomeCollectionViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModelCell.swift; sourceTree = "<group>"; };
 		30E3767625666C48000D6BA6 /* ImageDetailsViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewModelCell.swift; sourceTree = "<group>"; };
@@ -148,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30C24B3E2566F6CC007B5D6B /* FavouritesDetail */ = {
+			isa = PBXGroup;
+			children = (
+				30C24B3F2566F6EC007B5D6B /* FavouriteDetailViewController.swift */,
+				30C24B472566F72A007B5D6B /* FavouriteDetailViewModel.swift */,
+			);
+			path = FavouritesDetail;
+			sourceTree = "<group>";
+		};
 		30E376B12566ABBB000D6BA6 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +209,7 @@
 				30ECDF5925644C4800F06E78 /* Home */,
 				30ECDFB2256501FD00F06E78 /* Detail */,
 				30E376B12566ABBB000D6BA6 /* Favourites */,
+				30C24B3E2566F6CC007B5D6B /* FavouritesDetail */,
 				30ECDF032564477400F06E78 /* Assets.xcassets */,
 				30ECDF052564477400F06E78 /* LaunchScreen.storyboard */,
 				30ECDF082564477400F06E78 /* Info.plist */,
@@ -569,6 +583,7 @@
 				30ECDF6925644DCD00F06E78 /* Images.swift in Sources */,
 				30ECE07A256578E500F06E78 /* RedditLabel.swift in Sources */,
 				30ECDF022564477200F06E78 /* RedditGallery.xcdatamodeld in Sources */,
+				30C24B402566F6EC007B5D6B /* FavouriteDetailViewController.swift in Sources */,
 				30ECDFA225648ECD00F06E78 /* RedditCollectionFlowLayout.swift in Sources */,
 				30E376B32566ABEB000D6BA6 /* FavouritesViewController.swift in Sources */,
 				30ECDF6E25644DCD00F06E78 /* Resolutions.swift in Sources */,
@@ -581,6 +596,7 @@
 				30E3766F2566627D000D6BA6 /* HomeCollectionViewModelCell.swift in Sources */,
 				30ECDF78256452C100F06E78 /* RedditNavigationViewController.swift in Sources */,
 				30ECDF5E25644D2500F06E78 /* HomeRepo.swift in Sources */,
+				30C24B482566F72A007B5D6B /* FavouriteDetailViewModel.swift in Sources */,
 				30ECDF7E256471E200F06E78 /* RedditImageView.swift in Sources */,
 				30ECDFBB256503C300F06E78 /* ImageDetailViewModel.swift in Sources */,
 				30ECDF732564521F00F06E78 /* HomeCollectionViewCell.swift in Sources */,

@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeViewModelDelegate: NSObject {
     func reloadHomeData()
+    func notifyNoData()
 }
 
 class HomeViewModel: NSObject, ImagesRepoDelegate {
@@ -32,6 +33,10 @@ class HomeViewModel: NSObject, ImagesRepoDelegate {
     
     internal func didChangedData() {
         images = ImagesRepo.images
+    }
+    
+    internal func noData() {
+        delegate?.notifyNoData()
     }
     
 }

@@ -39,7 +39,9 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let img = favouritesViewModel?.favouriteImages[indexPath.item] {
-            
+            let vc = self.storyboard?.instantiateViewController(identifier: "favouriteDetailViewController") as! FavouriteDetailViewController
+            vc.favouriteImageViewModel = FavouriteDetailViewModel(image: img, heroID: "favouriteImage\(indexPath.item)")
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import  Hero
 
 class FavouriteCollectionViewCell: UICollectionViewCell {
     
@@ -23,6 +24,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(vm: FavouritesImageCellViewModel) {
+        hero.isEnabled = true
         favouriteCollectionCellViewModel = vm
         fillCell()
     }
@@ -30,6 +32,9 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
     func fillCell() {
         if let data = favouriteCollectionCellViewModel?.image?.imageBinary {
             self.favouriteImageView.image = UIImage(data: data)
+            if let index = favouriteCollectionCellViewModel?.index {
+                self.heroID = "favouriteImage\(index)"
+            }
         }
     }
 
