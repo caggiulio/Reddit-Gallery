@@ -88,6 +88,8 @@ class ImagesRepo: NSObject {
                                 } else {
                                     self.images = imgsToPass
                                 }
+                            } else {
+                                notifyObserverNoData()
                             }
                         }
                     }

@@ -15,9 +15,6 @@ class HomeViewController: UIViewController {
     var cellHeight: CGFloat = 500
     
     var homeViewModel: HomeViewModel?
-    
-    // Add a searchTask property to your controller
-    var searchTask: DispatchWorkItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +37,7 @@ class HomeViewController: UIViewController {
         searchController.searchBar.searchTextField.font = FontBook.Medium.of(size: 12)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
+        searchController.searchBar.showsCancelButton = false
     }
 }
 
@@ -90,13 +88,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             self.homeCollectionView.backgroundView = nil
         }
         
-        self.searchTask?.cancel()
-        let task = DispatchWorkItem { [weak self] in
-            self?.showLoader()
-            self?.homeViewModel?.search(textToSearch: searchText)
-        }
-        self.searchTask = task
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: task)
+        self.homeViewModel?.search(textToSearch: searchText)
+        self.showLoader()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

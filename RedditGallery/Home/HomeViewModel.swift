@@ -14,6 +14,8 @@ protocol HomeViewModelDelegate: NSObject {
 
 class HomeViewModel: NSObject, ImagesRepoDelegate {
     
+    var searchTask: DispatchWorkItem?
+    
     override init() {
         super.init()
         ImagesRepo.addImagesRepoObserver(observer: self)
@@ -28,7 +30,12 @@ class HomeViewModel: NSObject, ImagesRepoDelegate {
     }
     
     func search(textToSearch: String) {
-        ImagesRepo.textToSearch = textToSearch
+        self.searchTask?.cancel()
+        let task = DispatchWorkItem { [weak self] in
+            ImagesRepo.textToSearch = textToSearch
+        }
+        self.searchTask = task
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: task)
     }
     
     internal func didChangedData() {

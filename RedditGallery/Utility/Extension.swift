@@ -193,6 +193,11 @@ public extension UIWindow {
     
     func showLoader() {
         if let kWindow = UIWindow.key {
+            for v in kWindow.subviews {
+                if v.tag == 500 {
+                    return
+                }
+            }
             let activityIndicator = UIActivityIndicatorView()
             let containerLoader = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
             containerLoader.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)

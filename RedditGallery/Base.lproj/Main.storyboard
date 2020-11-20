@@ -229,7 +229,7 @@
                             <constraint firstItem="Fue-TN-Czf" firstAttribute="leading" secondItem="yY4-zs-zE2" secondAttribute="leading" id="vbb-22-BfP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8UI-6y-Dik"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="8UI-6y-Dik"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -348,42 +348,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImages" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-vJ-rAH">
-                                <rect key="frame" x="20" y="256" width="374" height="269"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3l-Oo-49s">
-                                <rect key="frame" x="20" y="559" width="374" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="GuX-he-VtV">
+                                <rect key="frame" x="-20" y="158" width="454" height="409"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImages" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-vJ-rAH">
+                                        <rect key="frame" x="0.0" y="0.0" width="454" height="251"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3l-Oo-49s">
+                                        <rect key="frame" x="0.0" y="270" width="454" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="bNT-eQ-0YD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try with another word and good luck! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2T-B6-eSu">
+                                        <rect key="frame" x="0.0" y="349" width="454" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="whJ-oV-Z0X"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="bNT-eQ-0YD"/>
+                                    <constraint firstItem="QLg-vJ-rAH" firstAttribute="width" secondItem="GuX-he-VtV" secondAttribute="width" id="13h-Gh-YGf"/>
+                                    <constraint firstItem="P2T-B6-eSu" firstAttribute="width" secondItem="m3l-Oo-49s" secondAttribute="width" id="W2f-s7-rog"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try with another word and good luck! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2T-B6-eSu">
-                                <rect key="frame" x="20" y="624" width="374" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="whJ-oV-Z0X"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hBb-Hw-C9Z"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="m3l-Oo-49s" firstAttribute="centerX" secondItem="hBb-Hw-C9Z" secondAttribute="centerX" id="B9I-aq-BLH"/>
-                            <constraint firstItem="QLg-vJ-rAH" firstAttribute="top" secondItem="hBb-Hw-C9Z" secondAttribute="top" constant="212" id="BU1-ag-Lvt"/>
-                            <constraint firstItem="QLg-vJ-rAH" firstAttribute="centerX" secondItem="hBb-Hw-C9Z" secondAttribute="centerX" id="FGQ-TL-9EB"/>
-                            <constraint firstItem="P2T-B6-eSu" firstAttribute="top" secondItem="m3l-Oo-49s" secondAttribute="bottom" constant="5" id="Gng-36-eY9"/>
-                            <constraint firstItem="m3l-Oo-49s" firstAttribute="width" secondItem="QLg-vJ-rAH" secondAttribute="width" id="PQt-O3-cyX"/>
-                            <constraint firstItem="P2T-B6-eSu" firstAttribute="width" secondItem="m3l-Oo-49s" secondAttribute="width" id="fFh-dj-hPE"/>
-                            <constraint firstItem="QLg-vJ-rAH" firstAttribute="height" secondItem="ppB-oq-1ka" secondAttribute="height" multiplier="0.3" id="hK1-uH-go7"/>
-                            <constraint firstItem="P2T-B6-eSu" firstAttribute="leading" secondItem="m3l-Oo-49s" secondAttribute="leading" id="kBU-dm-Fpj"/>
-                            <constraint firstItem="m3l-Oo-49s" firstAttribute="top" secondItem="QLg-vJ-rAH" secondAttribute="bottom" constant="34" id="rNx-ar-Ufk"/>
-                            <constraint firstItem="hBb-Hw-C9Z" firstAttribute="trailing" secondItem="QLg-vJ-rAH" secondAttribute="trailing" constant="20" id="t7l-T2-YML"/>
-                            <constraint firstItem="QLg-vJ-rAH" firstAttribute="leading" secondItem="hBb-Hw-C9Z" secondAttribute="leading" constant="20" id="tgd-BA-aQs"/>
+                            <constraint firstItem="GuX-he-VtV" firstAttribute="height" secondItem="ppB-oq-1ka" secondAttribute="height" multiplier="0.456473" id="B4q-Cs-rjt"/>
+                            <constraint firstItem="hBb-Hw-C9Z" firstAttribute="leading" secondItem="GuX-he-VtV" secondAttribute="leading" constant="20" id="Y7a-PK-PBt"/>
+                            <constraint firstItem="GuX-he-VtV" firstAttribute="trailing" secondItem="hBb-Hw-C9Z" secondAttribute="trailing" constant="20" id="rne-Dr-bKD"/>
+                            <constraint firstItem="GuX-he-VtV" firstAttribute="centerY" secondItem="hBb-Hw-C9Z" secondAttribute="centerY" multiplier="0.8" id="vaC-CA-lZC"/>
                         </constraints>
                     </view>
                 </viewController>
