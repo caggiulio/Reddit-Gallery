@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         searchController.searchBar.showsCancelButton = false
+        searchController.hidesNavigationBarDuringPresentation = false
     }
 }
 
