@@ -23,6 +23,6 @@ Reddit Gallery it's an iOS project written in native Swift language. The project
 * [FalconAlamofire](https://github.com/caggiulio/FalconAlamofire). 
 
 The pod use Alamofire library, but exists a version written with URLSession at this link: 
-* [Falcon](https://github.com/caggiulio/FalconAlamofire)
+* [Falcon](https://github.com/caggiulio/Falcon). 
 
 [product-screenshot]: images/devices.png
