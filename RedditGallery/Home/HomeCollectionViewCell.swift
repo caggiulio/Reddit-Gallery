@@ -34,7 +34,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     private func fillCell() {
-        self.heroID = "collection\(homeCellViewModel?.index)"
+        self.heroID = "collection\(String(describing: homeCellViewModel?.index))"
         var resIndex: Int = 0
         resIndex = max(0, homeCellViewModel?.image?.resolutions?.count ?? 0)
         if let url = homeCellViewModel?.image?.resolutions?[resIndex - 1].url {

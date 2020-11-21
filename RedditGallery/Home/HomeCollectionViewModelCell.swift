@@ -13,7 +13,6 @@ enum FavouriteMethod {
 }
 
 class HomeCollectionViewModelCell: NSObject {
-    
     var image: Images?
     var index: Int = 0
     

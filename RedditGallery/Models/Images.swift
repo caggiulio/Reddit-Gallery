@@ -14,8 +14,8 @@ public class Images: Codable, Equatable {
     var isPreferred: Bool = false
     
     private enum RootCodingKeys: String, CodingKey {
-            case resolutions = "resolutions"
-            case id = "id"
+        case resolutions = "resolutions"
+        case id = "id"
     }
     
     required public init(from decoder: Decoder) throws {

@@ -14,10 +14,10 @@ class RedditFavouritesButton: UIButton {
             configeBtn()
     }
 
-        required init?(coder aDecoder: NSCoder) {
-           super.init(coder: aDecoder)
-            configeBtn()
-        }
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
+        configeBtn()
+    }
     
     func configeBtn() {
         self.addTarget(self, action: #selector(defaultAction(_:)), for: .touchUpInside)
@@ -56,6 +56,4 @@ class RedditFavouritesButton: UIButton {
             }
         }
     }
-
-    
 }

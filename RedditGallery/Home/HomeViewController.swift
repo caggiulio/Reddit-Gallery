@@ -152,7 +152,6 @@ extension HomeViewController {
                     point.y = 0
                 }
                 scrollViewBackground.setContentOffset(point, animated: false)
-            
         }
     }
 }

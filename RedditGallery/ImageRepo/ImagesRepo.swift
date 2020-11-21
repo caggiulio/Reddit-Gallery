@@ -111,12 +111,6 @@ class ImagesRepo: NSObject {
     static func removeImage(img: Images) {
         ImagesRepo.images.removeEqualItems(img)
     }
-    
-    static func cancelRequest() {
-        AF.session.getAllTasks { (tasks) in
-            tasks.forEach { $0.cancel() }
-        }
-    }
 }
 
 extension ImagesRepoDelegate {

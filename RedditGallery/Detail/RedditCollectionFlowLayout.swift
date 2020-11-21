@@ -26,13 +26,10 @@ class RedditCollectionFlowLayout: UICollectionViewFlowLayout {
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return proposedContentOffset }
 
-        // Calculate width of your page
         let pageWidth = calculatedPageWidth()
 
-        // Calculate proposed page
         let proposedPage = round(proposedContentOffset.x / pageWidth)
 
-        // Adjust necessary offset
         let xOffset = pageWidth * proposedPage - collectionView.contentInset.left
 
         return CGPoint(x: xOffset, y: 0)
