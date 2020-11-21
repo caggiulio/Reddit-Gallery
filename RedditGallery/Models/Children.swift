@@ -27,12 +27,12 @@ class Children: Codable {
     required public init(from decoder: Decoder) throws {
 
         let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
-        let userDataContainer = try rootContainer.nestedContainer(keyedBy: RootCodingKeys.NestedCodingKeys.self, forKey: .data)
+        let imgsDataContainer = try rootContainer.nestedContainer(keyedBy: RootCodingKeys.NestedCodingKeys.self, forKey: .data)
 
-        preview = try userDataContainer.decodeIfPresent(Preview.self, forKey: .preview)
-        subreddit = try userDataContainer.decode(String.self, forKey: .subreddit)
-        authorFullname = try userDataContainer.decode(String.self, forKey: .authorFullname)
-        title = try userDataContainer.decode(String.self, forKey: .title)
+        preview = try imgsDataContainer.decodeIfPresent(Preview.self, forKey: .preview)
+        subreddit = try imgsDataContainer.decode(String.self, forKey: .subreddit)
+        authorFullname = try imgsDataContainer.decode(String.self, forKey: .authorFullname)
+        title = try imgsDataContainer.decode(String.self, forKey: .title)
     }
 
     func encode(to encoder: Encoder) throws {

@@ -86,9 +86,9 @@ class CoreDataRepo {
         let predicate = NSPredicate(format: "id = %@", id)
         request.predicate = predicate
         
-        let users = self.loadImagesFromFetchRequest(request: request)
-        if users.count > 0 {
-            return users[0]
+        let imgs = self.loadImagesFromFetchRequest(request: request)
+        if imgs.count > 0 {
+            return imgs[0]
         } else {
             return nil
         }
